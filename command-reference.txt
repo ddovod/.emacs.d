@@ -1,0 +1,4 @@
+Short command reference.
+
+M-arrows            choose window
+M-x zone            funny screensaver
