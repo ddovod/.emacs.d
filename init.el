@@ -19,17 +19,26 @@
 (global-hl-line-mode 1) 
 (scroll-bar-mode -1) 
 (global-linum-mode t)
+
 (setq-default indent-tabs-mode nil)
 (setq tab-width 4)
 (setq tab-stop-list (number-sequence 4 200 4))
+(setq ruby-indent-level 4)
+(set-default-font "Courier New-14")
 
+
+;; company configuration
+(add-hook 'after-init-hook 'global-company-mode)
+(add-hook 'ruby-mode-hook 'robe-mode)
+(eval-after-load 'company
+  '(push 'company-robe company-backends))
 
 ;;
 (require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.org/packages/") t)
 (package-initialize)
 
-(add-to-list 'package-archives
-             '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 (custom-set-variables
     '(inhibit-startup-screen t))
 (custom-set-faces)
