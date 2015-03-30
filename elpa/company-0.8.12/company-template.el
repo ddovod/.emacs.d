@@ -184,7 +184,7 @@ Leave point at the end of the field."
         (let ((sig (buffer-substring-no-properties last-pos (match-end 1))))
           (save-excursion
             (company-template-add-field templ last-pos
-                                        (format "arg%d" counter) sig)
+                                        (format "%s" sig) sig)
             (delete-region (point) (+ (point) (length sig))))
           (skip-chars-forward " ")
           (setq last-pos (point))
