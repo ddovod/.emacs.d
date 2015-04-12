@@ -4,3 +4,7 @@ auto-save-list
 .DS_Store
 .git
 zeptolab-org.org
+ido.last
+smex-items
+.emacs.desktop
+.emacs.desktop.lock

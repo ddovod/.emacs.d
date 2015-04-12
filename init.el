@@ -1,22 +1,17 @@
 
+(setq package-enable-at-startup nil)
+(package-initialize)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.org/packages/") t)
+
+
 ;; loading theme
-(add-to-list 'load-path "~/.emacs.d/elpa/solarized-theme-1.2.1/")
-(add-to-list 'load-path "~/.emacs.d/elpa/dash-2.10.0/")
-(add-to-list 'custom-theme-load-path "~/.emacs.d/elpa/solarized-theme-1.2.1/")
 (load-theme 'solarized-dark t)
 
-
-;; nyan mode
-(add-to-list 'load-path "~/.emacs.d/nyan-mode")
-(require 'nyan-mode)
-(nyan-mode)
-(setq nyan-animate-nyancat t)
-
+(load "~/.emacs.d/user_elisp/nyan_config.el")
 
 ;; hide tool bar
 (tool-bar-mode -1)
-
-
 ;;
 (setq file-name-coding-system 'utf-8)
 (setq scroll-step 1)
@@ -29,12 +24,7 @@
          kill-buffer-query-functions))
 
 
-;; rainbow mode
-(add-to-list 'load-path "~/.emacs.d/elpa/rainbow-mode-0.11/")
-(require 'rainbow-mode)
-(add-hook 'prog-mode-hook #'rainbow-mode)
-(add-hook 'text-mode-hook #'rainbow-mode)
-
+(load "~/.emacs.d/user_elisp/rainbow_config.el")
 
 ;; parens
 (electric-pair-mode t)
@@ -57,16 +47,6 @@
 (eval-after-load 'company
   '(push 'company-robe company-backends))
 
-
-;;
-(require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.org/packages/") t)
-(package-initialize)
-
-(custom-set-variables
-    '(inhibit-startup-screen t))
-(custom-set-faces)
 
 
 ;; WindMove
@@ -130,45 +110,11 @@ the start of the line."
 (setq delete-by-moving-to-trash t)
 
 
-;; ido
-(require 'ido)
-(ido-mode t)
-(setq ido-enable-flex-matching t) 
-(setq ido-create-new-buffer 'always)
-(add-hook 'ido-setup-hook 
-          (lambda () 
-            (define-key ido-completion-map [tab] 'ido-complete)))
-(autoload 'idomenu "idomenu" nil t)
+(delete-selection-mode t)
 
 
-;; smex
-(require 'smex)
-(smex-initialize)
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
-;; old M-x.
-(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
-;; enabling acronyms
-(defadvice ido-set-matches-1 (after ido-smex-acronym-matches activate)
-  (if (and (fboundp 'smex-already-running) (smex-already-running)
-           (> (length ido-text) 1))
-      (let ((regex (concat "^" (mapconcat 'char-to-string ido-text "[^-]*-")))
-            (acronym-matches (list))
-            (remove-regexes '("-menu-")))
-        ;; Creating the list of the results to be set as first
-        (dolist (item items)
-          (if (string-match (concat regex "[^-]*$") item) ;; strict match
-              (add-to-list 'acronym-matches item)
-            (if (string-match regex item) ;; appending relaxed match
-                (add-to-list 'acronym-matches item t))))
+(load "~/.emacs.d/user_elisp/ido_config.el")
 
-        ;; Creating resulting list
-        (setq ad-return-value
-              (append acronym-matches
-                      ad-return-value))
-
-        (delete-dups ad-return-value)
-        (reverse ad-return-value))))
 
 
 ;; setup for c/c++ development
@@ -184,9 +130,20 @@ the start of the line."
 
 (setq company-clang-arguments '("-std=c++11"))
 
+;; ace jump mode
+(require 'ace-jump-mode)
+(define-key global-map (kbd "C-;") 'ace-jump-word-mode)
+(define-key global-map (kbd "C-'") 'ace-jump-char-mode)
 
-;; little autocompletion face fix
-(set-face-foreground 'company-tooltip-annotation "#839496")
+
+;; imenu conf
+(global-set-key (kbd "C-.") 'imenu-anywhere)
+
+
+
+
+;; smart mode line
+;(sml/setup)
 
 
 ;; irony-mode
