@@ -44,3 +44,7 @@
 
         (delete-dups ad-return-value)
         (reverse ad-return-value))))
+
+;; ido vertical mode
+(require 'ido-vertical-mode)
+(ido-vertical-mode t)

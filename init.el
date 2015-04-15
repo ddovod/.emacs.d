@@ -64,7 +64,6 @@
 ;; TODO: neotree
 ;; TODO: resoursive minibuf
 ;; TODO: smartparens
-;; TODO: projectile
 ;; TODO: undo-tree
 
 
@@ -140,6 +139,25 @@ the start of the line."
 (global-set-key (kbd "C-.") 'imenu-anywhere)
 
 
+;; multiple cursors
+(require 'multiple-cursors)
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)     ; add a cursor to each line of active region
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+
+
+;; yaml mode
+(require 'yaml-mode)
+(add-hook 'yaml-mode-hook
+          '(lambda ()
+             (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
+
+
+;; projectile
+(projectile-global-mode)
+(setq projectile-indexing-method 'alien)
+(setq projectile-enable-caching nil)
 
 
 ;; smart mode line
@@ -171,3 +189,17 @@ the start of the line."
 ;;(add-hook 'irony-mode-hook 'company-irony-setup-begin-commands)
 
 
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
