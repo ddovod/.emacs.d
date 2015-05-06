@@ -20,6 +20,8 @@
 (load "~/.emacs.d/user_elisp/yaml_config.el")
 (load "~/.emacs.d/user_elisp/projectile_config.el")
 (load "~/.emacs.d/user_elisp/cpp_config.el")
+(load "~/.emacs.d/user_elisp/erlang_config.el")
+(load "~/.emacs.d/user_elisp/flycheck_config.el")
 
 
 (load "~/.emacs.d/user_elisp/other_stuff_config.el")
@@ -33,3 +35,4 @@
 ;; smart mode line
 ;(sml/setup)
 
+(setenv "ERL_LIBS" "$HOME/_code/erlang/hexlet/deps/sync/")

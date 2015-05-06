@@ -46,3 +46,6 @@ the start of the line."
 ;; soma analytics
 (keyfreq-mode 1)
 (keyfreq-autosave-mode 1)
+
+
+(setq mode-compile-always-save-buffer-p t)

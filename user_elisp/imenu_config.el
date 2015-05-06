@@ -1,4 +1,4 @@
 
 
 ;; imenu conf
-(global-set-key (kbd "C-.") 'imenu-anywhere)
+(global-set-key (kbd "C-.") 'imenu)
