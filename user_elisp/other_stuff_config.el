@@ -18,8 +18,18 @@
 (setq ruby-indent-level 4)
 (desktop-save-mode 1)
 ;; reduce performance issue
-(setq gc-cons-threshold (* 10 1024 1024))
+(setq gc-cons-threshold (* 50 1024 1024))
 
+(setq c-basic-offset 4)
+(add-hook 'java-mode-hook
+          '(lambda ()
+             (setq c-basic-offset 2)
+             )
+          )
+
+
+(global-auto-revert-mode t)
+(setq vc-handled-backends nil)
 
 
 ;; tweek
@@ -48,4 +58,20 @@ the start of the line."
 (keyfreq-autosave-mode 1)
 
 
+(defun eval-and-replace ()
+  "Replace the preceding sexp with its value."
+  (interactive)
+    (backward-kill-sexp)
+  ;;(kill-region (mark) (point))
+  (condition-case nil
+      (prin1 (eval (read (current-kill 0)))
+             (current-buffer))
+    (error (message "Invalid expression")
+           (insert (current-kill 0)))))
+(global-set-key (kbd "C-c C-e") 'eval-and-replace)
+
+
 (setq mode-compile-always-save-buffer-p t)
+
+(add-hook 'find-file-hook (lambda () (setq buffer-save-without-query t)))
+

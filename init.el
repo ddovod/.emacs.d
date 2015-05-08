@@ -36,3 +36,4 @@
 ;(sml/setup)
 
 (setenv "ERL_LIBS" "$HOME/_code/erlang/hexlet/deps/sync/")
+(setenv "PATH" (shell-command-to-string "source ~/.bashrc; echo -n $PATH"))

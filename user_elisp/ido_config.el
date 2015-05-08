@@ -12,6 +12,7 @@
 (require 'flx-ido)
 (ido-everywhere t)
 (flx-ido-mode t)
+(setq flx-ido-threshold 1000)
 ;; disable ido faces to see flx highlights.
 (setq ido-use-faces nil)
 (ido-ubiquitous-mode)
