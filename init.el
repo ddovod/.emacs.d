@@ -22,9 +22,20 @@
 (load "~/.emacs.d/user_elisp/cpp_config.el")
 (load "~/.emacs.d/user_elisp/erlang_config.el")
 (load "~/.emacs.d/user_elisp/flycheck_config.el")
+(load "~/.emacs.d/user_elisp/yasnippet_config.el")
+(load "~/.emacs.d/user_elisp/irony_config.el")
 
 
 (load "~/.emacs.d/user_elisp/other_stuff_config.el")
+
+
+(require 'cmake-mode)
+
+(add-hook 'c-mode-common-hook
+          (lambda ()
+            (if (derived-mode-p 'c-mode 'c++-mode)
+                (cppcm-reload-all)
+              )))
 
 
 ;; TODO: neotree
