@@ -10,3 +10,4 @@ smex-items
 .emacs.desktop.lock
 projectile.cache
 projectile-bookmarks.eld
+eshell/
