@@ -75,3 +75,28 @@ the start of the line."
 
 (add-hook 'find-file-hook (lambda () (setq buffer-save-without-query t)))
 
+(defun get-include-guard ()
+  "Return a string suitable for use in a C/C++ include guard"
+  (let* ((fname (buffer-file-name (current-buffer)))
+         (fbasename (replace-regexp-in-string ".*/" "" fname))
+         (inc-guard-base (replace-regexp-in-string "[.-]"
+                                                   "_"
+                                                   fbasename)))
+    (concat (upcase inc-guard-base) "_")))
+
+(add-hook 'find-file-not-found-hooks
+          '(lambda ()
+             (let ((file-name (buffer-file-name (current-buffer))))
+               (when (string= ".h" (substring file-name -2))
+                 (let ((include-guard (get-include-guard)))
+                   (insert "#ifndef " include-guard)
+                   (newline)
+                   (insert "#define " include-guard)
+                   (newline 4)
+                   (insert "#endif")
+                   (newline)
+                   (previous-line 3)
+                   (set-buffer-modified-p nil))))))
+
+
+(persp-mode)
