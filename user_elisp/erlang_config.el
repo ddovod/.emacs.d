@@ -16,18 +16,6 @@
           (lambda () (local-set-key (kbd "RET") 'newline-and-indent)))
 (add-hook 'erlang-mode-hook (lambda () (imenu-add-to-menubar "imenu")))
 
-(add-to-list 'load-path "~/.emacs.d/distel/elisp")
-(require 'distel)
-(distel-setup)
-
-(defvar inferior-erlang-prompt-timeout t)
-(setq inferior-erlang-machine-options '("-sname" "emacs"))
-(setq erl-nodename-cache
-      (make-symbol
-       (concat
-        "emacs@"
-        (car (split-string (shell-command-to-string "hostname"))))))
-
 (setq compilation-ask-about-save nil)
 (add-hook 'find-file-hook (lambda () (setq buffer-save-without-query t)))
 
@@ -63,6 +51,30 @@
 ;; (defun erlang-mode-keys ()
 ;;   "Manual erlang-mode keybindings."
 ;;   (local-set-key (kbd "C-")))
+
+
+
+
+;; distel
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/distel/elisp"))
+(require 'distel)
+(distel-setup)
+
+(defvar inferior-erlang-prompt-timeout t)
+(defvar inferior-erlang-prompt-timeout t)
+(setq inferior-erlang-machine-options '("-sname" "emacs"))
+(setq erl-nodename-cache
+      (make-symbol
+       (concat
+        "emacs@"
+        (car (split-string (shell-command-to-string "hostname"))))))
+
+
+(add-to-list 'load-path "~/.emacs.d/company-distel")
+(require 'company-distel)
+(require 'company)
+(add-to-list 'company-backends '(company-distel :with company-yasnippet))
+
 
 (provide 'erlang-config)
 ;;; erlang_config.el ends here

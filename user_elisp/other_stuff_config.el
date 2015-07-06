@@ -1,6 +1,7 @@
+;;; package --- Sumary
+;;; Commentary:
+;;; Code:
 
-
-;; hide tool bar
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (menu-bar-mode -1)
@@ -15,9 +16,10 @@
 (setq-default indent-tabs-mode nil)
 (setq tab-width 4)
 (setq tab-stop-list (number-sequence 4 200 4))
+
+
 (setq ruby-indent-level 4)
-(desktop-save-mode 1)
-;; reduce performance issue
+;; (desktop-save-mode 1)
 (setq gc-cons-threshold (* 50 1024 1024))
 
 (setq c-basic-offset 4)
@@ -100,3 +102,5 @@ the start of the line."
 
 
 (persp-mode)
+
+

@@ -8,6 +8,11 @@
 ;; Add yasnippet support for all company backends
 ;; https://github.com/syl20bnr/spacemacs/pull/179
 (require 'company)
+
+
+;; (push '(company-distel :with company-yasnippet) company-backends)
+
+
 (defvar company-mode/enable-yas t
   "Enable yasnippet for all backends.")
 
@@ -19,5 +24,12 @@
             '(:with company-yasnippet))))
 
 (setq company-backends (mapcar #'company-mode/backend-with-yas company-backends))
+
+
+;; (add-hook 'erlang-mode-hook
+;;           (lambda ()
+;;             (set (make-local-variable 'company-backends)
+;;                  '((company-dabbrev-code company-yasnippet)))))
+
 
 ;;; yasnippet_config.el ends here

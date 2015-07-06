@@ -1,7 +1,17 @@
-
+;;; package --- Summary
+;;; Commentary:
+;;; Code:
 ;;
 ;; !!! KEEP YOUR CONFIG CLEAN !!!
 ;;
+
+
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
 
 (load "~/.emacs.d/user_elisp/packages_config.el")
 (load "~/.emacs.d/user_elisp/theme_config.el")
@@ -24,6 +34,7 @@
 (load "~/.emacs.d/user_elisp/flycheck_config.el")
 (load "~/.emacs.d/user_elisp/yasnippet_config.el")
 (load "~/.emacs.d/user_elisp/irony_config.el")
+(load "~/.emacs.d/user_elisp/ocaml_config.el")
 
 
 (load "~/.emacs.d/user_elisp/other_stuff_config.el")
@@ -38,13 +49,9 @@
               )))
 
 
-;; TODO: neotree
-;; TODO: resoursive minibuf
-;; TODO: smartparens
-;; TODO: undo-tree
-
-;; smart mode line
-;(sml/setup)
-
 (setenv "ERL_LIBS" "$HOME/_code/erlang/hexlet/deps/sync/")
 (setenv "PATH" (shell-command-to-string "source ~/.bashrc; echo -n $PATH"))
+
+
+(provide 'init)
+;;; init.el ends here

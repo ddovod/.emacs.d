@@ -4,6 +4,8 @@
 (setq mc/cmds-to-run-for-all
       '(
         beginning-of-line-dwim
+        c-electric-paren
+        c-macro-expand
         eval-and-replace
         eval-last-sexp
         ))
