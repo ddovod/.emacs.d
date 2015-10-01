@@ -25,13 +25,19 @@
 
 ;; --------------------------------------
 (require 'company)
-;; (add-to-list 'company-backends 'merlin-company-backend)
+(add-to-list 'company-backends 'merlin-company-backend)
 
 ;; --------------------------------------
 (with-eval-after-load 'merlin
-  (setq merlin-error-after-save nil)
-  (flycheck-ocaml-setup))
+ (setq merlin-error-after-save nil)
+ (flycheck-ocaml-setup))
 (add-hook 'tuareg-mode-hook 'merlin-mode)
+
+(defun merlin-packages ()
+  "Merlin packages."
+  (interactive)
+  (merlin-use "core"))
+(add-hook 'merlin-mode-hook 'merlin-packages)
 
 ;; --------------------------------------
 ;; Setup environment variables using opam

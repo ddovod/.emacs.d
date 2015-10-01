@@ -4,13 +4,23 @@
 (setq mc/cmds-to-run-for-all
       '(
         beginning-of-line-dwim
+        c-electric-brace
+        c-electric-colon
+        c-electric-lt-gt
         c-electric-paren
+        c-electric-semi&comma
         c-macro-expand
+        electric-newline-and-maybe-indent
+        electric-pair-delete-pair
         eval-and-replace
         eval-last-sexp
+        eval-print-last-sexp
+        persp-prev
+        yaml-electric-backspace
+        yaml-electric-dash-and-dot
+        yas-expand
         ))
 
 (setq mc/cmds-to-run-once
       '(
-        smex
         ))

@@ -4,7 +4,7 @@
 (add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
 ;;;### (autoloads nil "flycheck-ocaml" "flycheck-ocaml.el" (21914
-;;;;;;  56527 701317 446000))
+;;;;;;  58334 779245 387000))
 ;;; Generated autoloads from flycheck-ocaml.el
 
 (autoload 'flycheck-ocaml-setup "flycheck-ocaml" "\

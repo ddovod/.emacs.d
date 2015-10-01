@@ -34,7 +34,9 @@
 (load "~/.emacs.d/user_elisp/flycheck_config.el")
 (load "~/.emacs.d/user_elisp/yasnippet_config.el")
 (load "~/.emacs.d/user_elisp/irony_config.el")
-(load "~/.emacs.d/user_elisp/ocaml_config.el")
+;;(load "~/.emacs.d/user_elisp/ocaml_config.el")
+(load "~/.emacs.d/user_elisp/rtags_config.el")
+(load "~/.emacs.d/user_elisp/git_config.el")
 
 
 (load "~/.emacs.d/user_elisp/other_stuff_config.el")

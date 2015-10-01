@@ -28,8 +28,15 @@
 (require 'company)
 (eval-after-load 'company
   '(delete 'company-backends 'company-clang))
+
+(require 'company-irony-c-headers)
+;; Load with `irony-mode` as a grouped backend
 (eval-after-load 'company
-  '(add-to-list 'company-backends 'company-irony))
+  '(add-to-list
+    'company-backends '(company-irony-c-headers company-irony)))
+
+;; (eval-after-load 'company
+;;   '(add-to-list 'company-backends 'company-irony))
 
 ;;     std::|
 (add-hook 'irony-mode-hook 'company-irony-setup-begin-commands)

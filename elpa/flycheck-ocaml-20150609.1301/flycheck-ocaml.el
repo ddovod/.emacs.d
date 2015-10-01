@@ -1,11 +1,9 @@
 ;;; flycheck-ocaml.el --- Flycheck: OCaml support    -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2014-2015  Sebastian Wiesner <swiesner@lunaryorn.com>
-;; Copyright (C) 2015  Frédéric Bour <frederic.bour@lakaban.net>
 
 ;; Author: Sebastian Wiesner <swiesner@lunaryorn.com>
 ;; URL: https://github.com/flycheck/flycheck-ocaml
-;; Package-Version: 20150609.1301
 ;; Keywords: convenience, tools, languages
 ;; Version: 0.3-cvs
 ;; Package-Requires: ((emacs "24.1") (flycheck "0.22") (merlin "2.0") (let-alist "1.0.3"))
@@ -27,33 +25,11 @@
 
 ;;; Commentary:
 
-;; This Flycheck extension provides a new `ocaml-merlin' syntax checker which
-;; uses Merlin Mode (see URL `https://github.com/the-lambda-church/merlin') to
-;; check OCaml buffers for errors.
-;;
-;; # Setup
-;;
-;; Add the following to your init file:
-;;
-;;    (with-eval-after-load 'merlin
-;;      ;; Disable Merlin's own error checking
-;;      (setq merlin-error-after-save nil)
-;;
-;;      ;; Enable Flycheck checker
-;;      (flycheck-ocaml-setup))
-;;
-;;    (add-hook 'tuareg-mode-hook #'merlin-mode)
-;;
-;; # Usage
-;;
-;; Just use Flycheck as usual in Tuareg Mode buffers.  Flycheck will
-;; automatically use the new `ocaml-merlin` syntax checker if Merlin Mode is
-;; enabled and Merlin's own error checking (`merlin-error-after-save`) is
-;; disabled.
-;;
-;; If you enable Merlin's error checking with `M-x merlin-toggle-view-errors`
-;; Flycheck will not use the `ocaml-merlin` syntax checker anymore, to avoid
-;; duplicate and redundant error reporting.
+;; OCaml support for Flycheck.
+
+;; Provide the `ocaml-merlin' syntax checker which uses Merlin Mode (see URL
+;; `https://github.com/the-lambda-church/merlin') to check OCaml buffers for
+;; errors.
 
 ;;; Code:
 
@@ -63,12 +39,7 @@
 (require 'merlin)
 (require 'flycheck)
 
-;; Mark `merlin-command-priority' as dynamic variable, to make sure that this
-;; file is compiled correctly against older Merlin versions which don't provide
-;; this variable yet.  Otherwise the byte compiler would treat it as lexical
-;; variable and elide it, and things would not work well if Merlin is updated
-;; afterwards.
-(defvar merlin-command-priority)
+(defvar merlin-command-priority) ;; enjoy dynamic scoping
 
 (defconst flycheck-ocaml-merlin-message-re
   (rx string-start
@@ -84,7 +55,6 @@
 
 (defun flycheck-ocaml-merlin-parse-message (message)
   "Parse an error MESSAGE from a Merlin error.
-
 Return `(LEVEL . PARSED-MESSAGE)', where LEVEL is the Flycheck
 error level, and PARSED-MESSAGE is the real error message with
 irrelevant parts removed."
@@ -102,7 +72,6 @@ irrelevant parts removed."
 
 (defun flycheck-ocaml-merlin-parse-error (alist checker)
   "Parse a Merlin error ALIST from CHECKER into a `flycheck-error'.
-
 Return the corresponding `flycheck-error'."
   (let-alist alist
     (when .message
@@ -137,7 +106,6 @@ Return the corresponding `flycheck-error'."
 
 (defun flycheck-ocaml-merlin-start (checker callback)
   "Start a Merlin syntax check with CHECKER.
-
 CALLBACK is the status callback passed by Flycheck."
   (condition-case nil
       (let ((merlin-command-priority 0))
@@ -165,7 +133,6 @@ CALLBACK is the status callback passed by Flycheck."
 
 (flycheck-define-generic-checker 'ocaml-merlin
   "A syntax checker for OCaml using Merlin Mode.
-
 See URL `https://github.com/the-lambda-church/merlin'."
   :start #'flycheck-ocaml-merlin-start
   :verify #'flycheck-verify-ocaml-merlin
@@ -178,7 +145,6 @@ See URL `https://github.com/the-lambda-church/merlin'."
 ;;;###autoload
 (defun flycheck-ocaml-setup ()
   "Setup Flycheck OCaml.
-
 Add `ocaml-merlin' to `flycheck-checkers'."
   (interactive)
   (add-to-list 'flycheck-checkers 'ocaml-merlin))

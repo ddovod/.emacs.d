@@ -12,3 +12,7 @@ projectile.cache
 projectile-bookmarks.eld
 eshell/
 irony/*
+rtags/build
+session.*
+\#*\#
+bookmarks

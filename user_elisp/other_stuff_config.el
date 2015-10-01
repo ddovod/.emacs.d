@@ -31,7 +31,6 @@
 
 
 (global-auto-revert-mode t)
-(setq vc-handled-backends nil)
 
 
 ;; tweek
@@ -103,4 +102,18 @@ the start of the line."
 
 (persp-mode)
 
+(global-set-key (kbd "C-z") nil)
 
+(require 'magit)
+(global-set-key (kbd "C-x g") 'magit-status)
+
+(require 'sublimity)
+(require 'sublimity-scroll)
+;; (require 'sublimity-map)
+;; (require 'sublimity-attractive)
+(sublimity-mode 1)
+
+(global-subword-mode 1)
+
+(provide 'other_stuff_config)
+;;; other_stuff_config.el ends here
