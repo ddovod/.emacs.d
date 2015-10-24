@@ -16,6 +16,8 @@
         eval-last-sexp
         eval-print-last-sexp
         persp-prev
+        subword-left
+        subword-right
         yaml-electric-backspace
         yaml-electric-dash-and-dot
         yas-expand

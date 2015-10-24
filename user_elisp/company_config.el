@@ -10,6 +10,7 @@
 (eval-after-load 'company
   '(delete 'company-semantic company-backends))
 
+(setq company-minimum-prefix-length 1)
 
 
 ;; (require 'company-c-headers)

@@ -7,7 +7,7 @@
 (menu-bar-mode -1)
 (setq file-name-coding-system 'utf-8)
 (setq scroll-step 1)
-(global-hl-line-mode 1)  
+(global-hl-line-mode 1)
 (global-linum-mode t)
 (fset 'yes-or-no-p 'y-or-n-p)
 (setq kill-buffer-query-functions
@@ -16,12 +16,15 @@
 (setq-default indent-tabs-mode nil)
 (setq tab-width 4)
 (setq tab-stop-list (number-sequence 4 200 4))
+(setq inhibit-startup-message t)
 
 
+(require 'ruby-mode)
 (setq ruby-indent-level 4)
 ;; (desktop-save-mode 1)
 (setq gc-cons-threshold (* 50 1024 1024))
 
+(require 'cc-mode)
 (setq c-basic-offset 4)
 (add-hook 'java-mode-hook
           '(lambda ()
@@ -35,8 +38,7 @@
 
 ;; tweek
 (defun beginning-of-line-dwim ()
-  "Toggles between moving point to the first non-whitespace character, and
-the start of the line."
+  "Toggle between moving point to the first non-whitespace character, and the start of the line."
   (interactive)
   (let ((start-position (point)))
     ;; Move to the first non-whitespace character.
@@ -62,14 +64,13 @@ the start of the line."
 (defun eval-and-replace ()
   "Replace the preceding sexp with its value."
   (interactive)
-    (backward-kill-sexp)
-  ;;(kill-region (mark) (point))
+  (backward-kill-sexp)
   (condition-case nil
       (prin1 (eval (read (current-kill 0)))
              (current-buffer))
     (error (message "Invalid expression")
            (insert (current-kill 0)))))
-(global-set-key (kbd "C-c C-e") 'eval-and-replace)
+(global-set-key (kbd "C-c e r") 'eval-and-replace)
 
 
 (setq mode-compile-always-save-buffer-p t)
@@ -77,7 +78,7 @@ the start of the line."
 (add-hook 'find-file-hook (lambda () (setq buffer-save-without-query t)))
 
 (defun get-include-guard ()
-  "Return a string suitable for use in a C/C++ include guard"
+  "Return a string suitable for use in a C/C++ include guard."
   (let* ((fname (buffer-file-name (current-buffer)))
          (fbasename (replace-regexp-in-string ".*/" "" fname))
          (inc-guard-base (replace-regexp-in-string "[.-]"
@@ -114,6 +115,55 @@ the start of the line."
 (sublimity-mode 1)
 
 (global-subword-mode 1)
+
+(setq-default cursor-type 'bar)
+
+;; isearch improvements
+(defun isearch-delete-something ()
+  "Delete non-matching text or the last character."
+  ;; Mostly copied from `isearch-del-char' and Drew's answer on the page above
+  (interactive)
+  (if (= 0 (length isearch-string))
+      (ding)
+    (setq isearch-string
+          (substring isearch-string
+                     0
+                     (or (isearch-fail-pos) (1- (length isearch-string)))))
+    (setq isearch-message
+          (mapconcat #'isearch-text-char-description isearch-string "")))
+  (if isearch-other-end (goto-char isearch-other-end))
+  (isearch-search)
+  (isearch-push-state)
+  (isearch-update))
+
+;;(bind-key "<backspace>" 'isearch-delete-something isearch-mode-map)
+(define-key isearch-mode-map (kbd "<backspace>") 'isearch-delete-something)
+
+(load "~/.emacs.d/user_elisp/newcomment.el")
+(require 'newcomment)
+(global-set-key (kbd "C-x C-;") 'comment-line)
+
+(require 'anzu)
+(global-anzu-mode +1)
+
+(set-face-attribute 'anzu-mode-line nil
+                    :foreground "yellow" :weight 'bold)
+
+(custom-set-variables
+ '(anzu-mode-lighter "")
+ '(anzu-deactivate-region t)
+ '(anzu-search-threshold 1000)
+ '(anzu-replace-to-string-separator " => "))
+
+(require 'drag-stuff)
+(drag-stuff-global-mode t)
+
+;; sidable bold and italic
+(mapc
+ (lambda (face)
+   (set-face-attribute face nil :weight 'normal))
+ (face-list))
+
 
 (provide 'other_stuff_config)
 ;;; other_stuff_config.el ends here

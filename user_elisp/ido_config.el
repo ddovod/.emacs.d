@@ -1,3 +1,7 @@
+;;; package --- Summary
+;;; Commentary:
+;;; Code:
+
 ;; ido mode and related stuff
 (require 'ido)
 (ido-mode t)
@@ -49,3 +53,7 @@
 ;; ido vertical mode
 (require 'ido-vertical-mode)
 (ido-vertical-mode t)
+(setq ido-vertical-define-keys 'C-n-C-p-up-and-down)
+
+(provide 'ido_config)
+;;; ido_config.el ends here
