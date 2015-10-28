@@ -38,10 +38,15 @@
 (load "~/.emacs.d/user_elisp/rtags_config.el")
 (load "~/.emacs.d/user_elisp/git_config.el")
 (load "~/.emacs.d/user_elisp/expand_region_config.el")
+(load "~/.emacs.d/user_elisp/disable_flymake_config.el")
+
 
 
 (load "~/.emacs.d/user_elisp/other_stuff_config.el")
 
+
+(require 'powerline)
+(powerline-default-theme)
 
 (require 'cmake-mode)
 

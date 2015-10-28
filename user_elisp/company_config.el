@@ -12,6 +12,14 @@
 
 (setq company-minimum-prefix-length 1)
 
+(eval-after-load 'company
+  '(push 'company-readline company-backends))
+(add-hook 'rlc-no-readline-hook (lambda () (company-mode -1)))
+
+(require 'company-restclient)
+(eval-after-load 'company
+  '(push 'company-restclient company-backends))
+
 
 ;; (require 'company-c-headers)
 ;; (eval-after-load 'company

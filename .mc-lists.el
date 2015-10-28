@@ -9,12 +9,15 @@
         c-electric-lt-gt
         c-electric-paren
         c-electric-semi&comma
+        c-electric-slash
+        c-electric-star
         c-macro-expand
         electric-newline-and-maybe-indent
         electric-pair-delete-pair
         eval-and-replace
         eval-last-sexp
         eval-print-last-sexp
+        kill-region
         persp-prev
         subword-left
         subword-right
