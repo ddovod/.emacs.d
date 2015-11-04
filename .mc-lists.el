@@ -19,6 +19,7 @@
         eval-print-last-sexp
         kill-region
         persp-prev
+        smex
         subword-left
         subword-right
         yaml-electric-backspace

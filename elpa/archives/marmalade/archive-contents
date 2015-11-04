@@ -1,6 +1,6 @@
 (1
  (zone-nyan .
-	    [(0 0 1)
+	    [(0 1 1)
 	     ((esxml
 	       (0 3 1)))
 	     "Zone out with nyan cat" single])
@@ -3305,7 +3305,7 @@
 	      (1 4)))
 	    "finalizers for Emacs Lisp" tar])
  (fill-column-indicator .
-			[(1 86)
+			[(1 87)
 			 nil "Graphically indicate the fill column" single])
  (file-format .
 	      [(0 0 4)

@@ -62,9 +62,11 @@
 
 
 (defun eval-and-replace ()
-  "Replace the preceding sexp with its value."
+  "Replace the preceding or selected sexp with its value."
   (interactive)
-  (backward-kill-sexp)
+  (if (use-region-p)
+      (kill-region (region-beginning) (region-end))
+    (backward-kill-sexp))
   (condition-case nil
       (prin1 (eval (read (current-kill 0)))
              (current-buffer))
@@ -158,7 +160,7 @@
 (require 'drag-stuff)
 (drag-stuff-global-mode t)
 
-;; sidable bold and italic
+;; disable bold and italic
 (mapc
  (lambda (face)
    (set-face-attribute face nil :weight 'normal))

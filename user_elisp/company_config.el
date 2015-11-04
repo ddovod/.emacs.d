@@ -20,6 +20,8 @@
 (eval-after-load 'company
   '(push 'company-restclient company-backends))
 
+(company-quickhelp-mode 1)
+(setq company-quickhelp-delay 1)
 
 ;; (require 'company-c-headers)
 ;; (eval-after-load 'company
