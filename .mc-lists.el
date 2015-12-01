@@ -12,6 +12,11 @@
         c-electric-slash
         c-electric-star
         c-macro-expand
+        dired-mark
+        dired-unmark
+        dired-unmark-all-marks
+        diredp-next-line
+        diredp-previous-line
         electric-newline-and-maybe-indent
         electric-pair-delete-pair
         eval-and-replace

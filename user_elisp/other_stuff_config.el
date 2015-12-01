@@ -166,6 +166,12 @@
    (set-face-attribute face nil :weight 'normal))
  (face-list))
 
+(require 'dired+)
+
+(which-function-mode 1)
 
 (provide 'other_stuff_config)
 ;;; other_stuff_config.el ends here
+
+
+

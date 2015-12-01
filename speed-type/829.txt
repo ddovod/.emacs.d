@@ -1,0 +1,16 @@
+HTTP/1.1 404 Not Found
+Server: Apache
+X-Rate-Limiter: ratelimiter2.php 53
+Set-Cookie: session_id=e25307d40a34898c939d78f4b703420256977f83; Domain=.gutenberg.org; expires=Mon, 16 Nov 2015 07:27:58 GMT; Path=/
+X-Frame-Options: sameorigin
+X-Connection: Close
+Content-Type: text/html
+X-Powered-By: 3
+X-Cacheable: NO: beresp.status
+Content-Length: 44
+Date: Mon, 16 Nov 2015 06:57:58 GMT
+X-Varnish: 1390064092
+Age: 0
+Via: 1.1 varnish
+
+<h1>404 Not Found</h1><p>File not found.</p>

@@ -29,32 +29,26 @@
    `diredp-prev-subdir'   - `C-M-p'
 
 
- Hide/Show Details
- -----------------
-
- Starting with Emacs 24.4, listing details are hidden by default.
- Use `(' anytime to toggle this hiding.  You can use option
- `diredp-hide-details-initially-flag' to change the default/initial
- state.  See also option `diredp-hide-details-propagate-flag'.
-
- NOTE: If you do not want to hide details initially then you must
-       either (1) change `diredp-hide-details-initially-flag' using
-       Customize (recommended) or (2) set it to `nil' (e.g., using
-       `setq') *BEFORE* loading `dired+.el'.
-
- If you have an Emacs version older than 24.4, you can use library
- `dired-details+.el' (plus `dired-details.el') to get similar
- behavior.
-
-
- Fontification Level
- -------------------
+ Fontification
+ -------------
 
  If you want a maximum or minimum fontification for Dired mode,
  then customize option `font-lock-maximum-decoration'.  If you want
  a different fontification level for Dired than for other modes,
  you can do this too by customizing
  `font-lock-maximize-decoration'.
+
+ A few of the user options defined here have an effect on
+ font-locking, and this effect is established only when Dired+ is
+ loaded, which defines the font-lock keywords for Dired.  These
+ options include `diredp-compressed-extensions',
+ `diredp-ignore-compressed-flag', and `dired-omit-extensions'.
+ This means that if you change the value of such an option then you
+ will see the change only in a new Emacs session.
+
+ (You can see the effect in the same session if you use `C-M-x' on
+ the `defvar' sexp for `diredp-font-lock-keywords-1', and then you
+ toggle font-lock off and back on.)
 
 
  Act on All Files
@@ -153,7 +147,7 @@
  `Dired+' provides several enhancements regarding image files.
  Most of these require standard library `image-dired.el'.  One of
  them, command `diredp-do-display-images', which displays all of
- the marked image files, requires library `image-file.el'.
+ the marked image files, requires standard library `image-file.el'.
 
  `Dired+' loads these libraries automatically, if available, which
  means an Emacs version that supports image display (Emacs 22 or
@@ -239,6 +233,15 @@
     a non-positive prefix arg, you can add extra file and directory
     names, just as for `diredp-add-to-dired-buffer'.
 
+ You can optionally add a header line to a Dired buffer using
+ toggle command `diredp-breadcrumbs-in-header-line-mode'.  (A
+ header line remains at the top of the window - no need to scroll
+ to see it.)  If you want to show the header line automatically in
+ all Dired buffers, you can do this:
+
+   (add-hook 'dired-before-readin-hook
+             'diredp-breadcrumbs-in-header-line-mode)
+
  Some other libraries, such as `Bookmark+' and `Icicles', make it
  easy to create or re-create Dired buffers that list specific files
  and have a particular set of markings.  `Bookmark+' records Dired
@@ -276,6 +279,24 @@
  ancestor Dired buffer.
 
 
+ Hide/Show Details
+ -----------------
+
+ Starting with Emacs 24.4, listing details are hidden by default.
+ Use `(' anytime to toggle this hiding.  You can use option
+ `diredp-hide-details-initially-flag' to change the default/initial
+ state.  See also option `diredp-hide-details-propagate-flag'.
+
+ NOTE: If you do not want to hide details initially then you must
+       either (1) change `diredp-hide-details-initially-flag' using
+       Customize (recommended) or (2) set it to `nil' (e.g., using
+       `setq') *BEFORE* loading `dired+.el'.
+
+ If you have an Emacs version older than 24.4, you can use library
+ `dired-details+.el' (plus `dired-details.el') to get similar
+ behavior.
+
+
  Faces defined here:
 
    `diredp-autofile-name', `diredp-compressed-file-suffix',
@@ -296,10 +317,12 @@
    `diredp-do-apply-function',
    `diredp-do-apply-function-recursive',
    `diredp-async-shell-command-this-file',
-   `diredp-bookmark-this-file', `diredp-byte-compile-this-file',
-   `diredp-capitalize', `diredp-capitalize-recursive',
-   `diredp-capitalize-this-file', `diredp-chgrp-this-file',
-   `diredp-chmod-this-file', `diredp-chown-this-file',
+   `diredp-bookmark-this-file',
+   `diredp-breadcrumbs-in-header-line-mode' (Emacs 22+),
+   `diredp-byte-compile-this-file', `diredp-capitalize',
+   `diredp-capitalize-recursive', `diredp-capitalize-this-file',
+   `diredp-chgrp-this-file', `diredp-chmod-this-file',
+   `diredp-chown-this-file',
    `diredp-compilation-files-other-window' (Emacs 24+),
    `diredp-compress-this-file',
    `diredp-copy-filename-as-kill-recursive',
@@ -343,8 +366,8 @@
    `diredp-find-file-reuse-dir-buffer',
    `diredp-find-line-file-other-window',
    `diredp-flag-region-files-for-deletion',
-   `diredp-grep-this-file', `diredp-hardlink-this-file',
-   `diredp-highlight-autofiles-mode',
+   `diredp-grepped-files-other-window', `diredp-grep-this-file',
+   `diredp-hardlink-this-file', `diredp-highlight-autofiles-mode',
    `diredp-image-dired-comment-file',
    `diredp-image-dired-comment-files-recursive',
    `diredp-image-dired-copy-with-exif-name',
@@ -356,11 +379,11 @@
    `diredp-image-dired-edit-comment-and-tags',
    `diredp-image-dired-tag-file',
    `diredp-image-dired-tag-files-recursive',
-   `diredp-insert-as-subdir', `diredp-insert-subdirs',
-   `diredp-insert-subdirs-recursive', `diredp-kill-this-tree',
-   `diredp-list-marked-recursive', `diredp-load-this-file',
-   `diredp-marked', `diredp-marked-other-window',
-   `diredp-marked-recursive',
+   `diredp-image-show-this-file', `diredp-insert-as-subdir',
+   `diredp-insert-subdirs', `diredp-insert-subdirs-recursive',
+   `diredp-kill-this-tree', `diredp-list-marked-recursive',
+   `diredp-load-this-file', `diredp-marked',
+   `diredp-marked-other-window', `diredp-marked-recursive',
    `diredp-marked-recursive-other-window',
    `diredp-mark-files-regexp-recursive',
    `diredp-mark-files-tagged-all', `diredp-mark-files-tagged-none',
@@ -419,11 +442,13 @@
  User options defined here:
 
    `diredp-auto-focus-frame-for-thumbnail-tooltip-flag',
-   `diredp-dwim-any-frame-flag' (Emacs 22+),
-   `diredp-image-preview-in-tooltip', `diff-switches',
+   `diredp-compressed-extensions', `diredp-dwim-any-frame-flag'
+   (Emacs 22+), `diredp-image-preview-in-tooltip', `diff-switches',
    `diredp-hide-details-initially-flag' (Emacs 24.4+),
    `diredp-highlight-autofiles-mode',
    `diredp-hide-details-propagate-flag' (Emacs 24.4+),
+   `diredp-ignore-compressed-flag',
+   `diredp-image-show-this-file-use-frame-flag' (Emacs 22+),
    `diredp-prompt-for-bookmark-prefix-flag',
    `diredp-w32-local-drives', `diredp-wrap-around-flag'.
 
@@ -450,17 +475,19 @@
    `diredp-hide-details-if-dired' (Emacs 24.4+),
    `diredp-hide/show-details' (Emacs 24.4+),
    `diredp-highlight-autofiles', `diredp-image-dired-required-msg',
-   `diredp-internal-do-deletions', `diredp-list-files',
-   `diredp-looking-at-p', `diredp-make-find-file-keys-reuse-dirs',
+   `diredp-get-image-filename', `diredp-internal-do-deletions',
+   `diredp-list-files', `diredp-looking-at-p',
+   `diredp-make-find-file-keys-reuse-dirs',
    `diredp-make-find-file-keys-not-reuse-dirs', `diredp-maplist',
    `diredp-marked-here', `diredp-mark-files-tagged-all/none',
    `diredp-mark-files-tagged-some/not-all',
-   `diredp-nonempty-region-p', `diredp-paste-add-tags',
-   `diredp-paste-replace-tags', `diredp-read-bookmark-file-args',
-   `diredp-read-include/exclude', `diredp-recent-dirs',
-   `diredp-refontify-buffer', `diredp-remove-if',
-   `diredp-remove-if-not', `diredp-root-directory-p',
-   `diredp-set-tag-value', `diredp-set-union',
+   `diredp-nonempty-region-p', `diredp-parent-dir',
+   `diredp-paste-add-tags', `diredp-paste-replace-tags',
+   `diredp-read-bookmark-file-args', `diredp-read-include/exclude',
+   `diredp-recent-dirs', `diredp-refontify-buffer',
+   `diredp-remove-if', `diredp-remove-if-not',
+   `diredp-root-directory-p', `diredp-set-header-line-breadcrumbs'
+   (Emacs 22+), `diredp-set-tag-value', `diredp-set-union',
    `diredp-string-match-p', `diredp-tag',
    `diredp-this-file-marked-p', `diredp-this-file-unmarked-p',
    `diredp-this-subdir', `diredp-untag', `diredp-y-or-n-files-p'.
@@ -499,7 +526,7 @@
  ***** NOTE: The following functions defined in `dired.el' have
              been REDEFINED or ADVISED HERE:
 
- `dired'                   - Doc string: non-positive prefix arg.
+ `dired'                   - Handle non-positive prefix arg.
  `dired-do-delete'         - Display message to warn that marked,
                              not flagged, files will be deleted.
  `dired-do-flagged-delete' - Display message to warn that flagged,
@@ -523,6 +550,8 @@
  `dired-mark-pop-up'       - Delete the window or frame popped up,
                              afterward, and bury its buffer. Do not
                              show a menu bar for pop-up frame.
+ `dired-other-frame'       - Handle non-positive prefix arg.
+ `dired-other-window'      - Handle non-positive prefix arg.
  `dired-pop-to-buffer'     - Put window point at bob (bug #12281).
                              (Emacs 22-24.1)
  `dired-read-dir-and-switches' - Non-positive prefix arg behavior.

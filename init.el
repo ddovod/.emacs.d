@@ -39,6 +39,9 @@
 (load "~/.emacs.d/user_elisp/git_config.el")
 (load "~/.emacs.d/user_elisp/expand_region_config.el")
 (load "~/.emacs.d/user_elisp/disable_flymake_config.el")
+(load "~/.emacs.d/user_elisp/clean_mode_line_config.el")
+(load "~/.emacs.d/user_elisp/protobuf_config.el")
+
 
 
 
@@ -57,8 +60,13 @@
               )))
 
 
-(setenv "ERL_LIBS" "$HOME/_code/erlang/hexlet/deps/sync/")
-(setenv "PATH" (shell-command-to-string "source ~/.bashrc; echo -n $PATH"))
+(setenv "ERL_LIBS"
+        "$HOME/_code/erlang/hexlet/deps/sync/")
+(setenv "PATH"
+        (shell-command-to-string "source ~/.bashrc; echo -n $PATH"))
+;; (setenv "LD_LIBRARY_PATH"
+;;         (shell-command-to-string "source ~/.bashrc; echo -n $LD_LIBRARY_PATH"))
+(setenv "LD_LIBRARY_PATH" "/usr/local/lib")
 
 
 (provide 'init)
