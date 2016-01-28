@@ -20,14 +20,13 @@
 (eval-after-load 'company
   '(push 'company-restclient company-backends))
 
-(company-quickhelp-mode 1)
-(setq company-quickhelp-delay 1)
+(eval-after-load 'company
+  '(push 'company-capf company-backends))
 
-;; (require 'company-c-headers)
-;; (eval-after-load 'company
-;;   '(add-to-list 'company-backends 'company-c-headers))
+;; (company-quickhelp-mode 1)
+;; (setq company-quickhelp-delay 1)
 
-
-;; (setq company-c-headers-path-system '("usr/include/c++/4.9"))
+;; (with-eval-after-load 'company
+;;   (company-flx-mode +1))
 
 ;;; company_config.el ends here

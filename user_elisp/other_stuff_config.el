@@ -11,8 +11,8 @@
 (global-linum-mode t)
 (fset 'yes-or-no-p 'y-or-n-p)
 (setq kill-buffer-query-functions
-  (remq 'process-kill-buffer-query-function
-         kill-buffer-query-functions))
+      (remq 'process-kill-buffer-query-function
+            kill-buffer-query-functions))
 (setq-default indent-tabs-mode nil)
 (setq tab-width 4)
 (setq tab-stop-list (number-sequence 4 200 4))
@@ -105,6 +105,7 @@
 
 (persp-mode)
 
+
 (global-set-key (kbd "C-z") nil)
 
 (require 'magit)
@@ -169,6 +170,9 @@
 (require 'dired+)
 
 (which-function-mode 1)
+
+(require 'compile)
+(setq compilation-scroll-output t)
 
 (provide 'other_stuff_config)
 ;;; other_stuff_config.el ends here

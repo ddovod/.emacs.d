@@ -62,8 +62,9 @@
 
 (setenv "ERL_LIBS"
         "$HOME/_code/erlang/hexlet/deps/sync/")
-(setenv "PATH"
-        (shell-command-to-string "source ~/.bashrc; echo -n $PATH"))
+(exec-path-from-shell-initialize)
+;; (setenv "PATH"
+;;         (shell-command-to-string "source ~/.bashrc; echo -n $PATH"))
 ;; (setenv "LD_LIBRARY_PATH"
 ;;         (shell-command-to-string "source ~/.bashrc; echo -n $LD_LIBRARY_PATH"))
 (setenv "LD_LIBRARY_PATH" "/usr/local/lib")
@@ -71,3 +72,23 @@
 
 (provide 'init)
 ;;; init.el ends here
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(anzu-deactivate-region t)
+ '(anzu-mode-lighter "")
+ '(anzu-replace-to-string-separator " => ")
+ '(anzu-search-threshold 1000)
+ '(safe-local-variable-values
+   (quote
+    ((projectile-project-run-cmd . "cocos run -p Linux")
+     (projectile-project-compilation-cmd . "cocos compile -p Linux")
+     (projectile-project-compilation-cmd "cocos compile -p Linux")))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

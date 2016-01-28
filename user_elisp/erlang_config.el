@@ -19,23 +19,23 @@
 (setq compilation-ask-about-save nil)
 (add-hook 'find-file-hook (lambda () (setq buffer-save-without-query t)))
 
-(defun bury-compile-buffer-if-successful (buffer string)
-  "Bury a compilation buffer if succeeded without warnings "
-  (if (and
-       (string-match "compilation" (buffer-name buffer))
-       (string-match "finished" string)
-       (not
-        (with-current-buffer buffer
-          (search-forward "warning" nil t)))
-       (not
-        (string-match "exited abnormally" string)))
-      (run-with-timer 1 nil
-                      (lambda (buf)
-                        (bury-buffer buf)
-                        (switch-to-prev-buffer (get-buffer-window buf) 'kill)
-                        (message "No compilation errors"))
-                      buffer)))
-(add-hook 'compilation-finish-functions 'bury-compile-buffer-if-successful)
+;; (defun bury-compile-buffer-if-successful (buffer string)
+;;   "Bury a compilation buffer if succeeded without warnings "
+;;   (if (and
+;;        (string-match "compilation" (buffer-name buffer))
+;;        (string-match "finished" string)
+;;        (not
+;;         (with-current-buffer buffer
+;;           (search-forward "warning" nil t)))
+;;        (not
+;;         (string-match "exited abnormally" string)))
+;;       (run-with-timer 1 nil
+;;                       (lambda (buf)
+;;                         (bury-buffer buf)
+;;                         (switch-to-prev-buffer (get-buffer-window buf) 'kill)
+;;                         (message "No compilation errors"))
+;;                       buffer)))
+;; (add-hook 'compilation-finish-functions 'bury-compile-buffer-if-successful)
 
 (defun rebar-compile ()
   "Compile project with rebar."

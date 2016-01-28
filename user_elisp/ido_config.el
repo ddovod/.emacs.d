@@ -55,5 +55,7 @@
 (ido-vertical-mode t)
 (setq ido-vertical-define-keys 'C-n-C-p-up-and-down)
 
+(setq ido-auto-merge-work-directories-length -1) ;; disable auto-merge
+
 (provide 'ido_config)
 ;;; ido_config.el ends here
