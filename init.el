@@ -41,6 +41,7 @@
 (load "~/.emacs.d/user_elisp/disable_flymake_config.el")
 (load "~/.emacs.d/user_elisp/clean_mode_line_config.el")
 (load "~/.emacs.d/user_elisp/protobuf_config.el")
+(load "~/.emacs.d/user_elisp/org_config.el")
 
 
 
@@ -83,7 +84,19 @@
  '(anzu-search-threshold 1000)
  '(safe-local-variable-values
    (quote
-    ((projectile-project-run-cmd . "cocos run -p Linux")
+    ((org-agenda-files list "main.org" "inbox.org")
+     (org-agenda-files list
+                       (quote "main.org")
+                       (quote "inbox.org"))
+     (org-tag-alist quote nil)
+     (org-startup-folded quote overview)
+     (org-agenda-files quote
+                       ("main.org" "inbox.org"))
+     (org-agenda-files ".")
+     (org-agenda-files list "main.org")
+     (org-agenda-files
+      (list "main.org"))
+     (projectile-project-run-cmd . "cocos run -p Linux")
      (projectile-project-compilation-cmd . "cocos compile -p Linux")
      (projectile-project-compilation-cmd "cocos compile -p Linux")))))
 (custom-set-faces
@@ -91,4 +104,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(persp-selected-face ((t (:foreground "#ff99ff" :weight bold)))))

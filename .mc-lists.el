@@ -23,6 +23,7 @@
         eval-last-sexp
         eval-print-last-sexp
         kill-region
+        org-self-insert-command
         persp-prev
         smex
         subword-left

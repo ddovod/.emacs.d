@@ -1,4 +1,6 @@
-
+;;; package --- summary
+;;; Commentary:
+;;; code:
 
 ;; backup configuration
 (setq
@@ -11,3 +13,6 @@
    version-control t)       ; use versioned backups
 (require 'backup-each-save)
 (add-hook 'after-save-hook 'backup-each-save)
+
+(provide 'backup_config)
+;;; backup_config.el ends here

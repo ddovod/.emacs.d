@@ -56,10 +56,6 @@
 ;;
 (delete-selection-mode t)
 
-;; soma analytics
-(keyfreq-mode 1)
-(keyfreq-autosave-mode 1)
-
 
 (defun eval-and-replace ()
   "Replace the preceding or selected sexp with its value."
@@ -74,8 +70,6 @@
            (insert (current-kill 0)))))
 (global-set-key (kbd "C-c e r") 'eval-and-replace)
 
-
-(setq mode-compile-always-save-buffer-p t)
 
 (add-hook 'find-file-hook (lambda () (setq buffer-save-without-query t)))
 
@@ -149,8 +143,6 @@
 (require 'anzu)
 (global-anzu-mode +1)
 
-(set-face-attribute 'anzu-mode-line nil
-                    :foreground "yellow" :weight 'bold)
 
 (custom-set-variables
  '(anzu-mode-lighter "")
@@ -173,6 +165,23 @@
 
 (require 'compile)
 (setq compilation-scroll-output t)
+(setq compilation-ask-about-save nil)
+(add-hook 'compilation-start-hook 'save-some-buffers)
+
+(defun backspace-some (arg)
+  "Deletes some backspaces, ARG unused."
+  (interactive "*P")
+  (let ((here (point))
+        (todelete (mod (current-column) 4)))
+    (if (/= (current-column) 0)
+        (if (eq todelete 0)
+            (skip-chars-backward " " (- (point) 4))
+          (skip-chars-backward " " (- (point) todelete))))
+    (if (/= (point) here)
+        (delete-region (point) here)
+      (delete-backward-char 1))))
+
+(global-set-key [backspace] 'backspace-some)
 
 (provide 'other_stuff_config)
 ;;; other_stuff_config.el ends here
