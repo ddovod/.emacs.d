@@ -3,6 +3,7 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        backspace-some
         beginning-of-line-dwim
         c-electric-brace
         c-electric-colon

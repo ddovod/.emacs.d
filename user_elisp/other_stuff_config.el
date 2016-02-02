@@ -173,18 +173,35 @@
   (interactive "*P")
   (let ((here (point))
         (todelete (mod (current-column) 4)))
-    (if (/= (current-column) 0)
-        (if (eq todelete 0)
-            (skip-chars-backward " " (- (point) 4))
-          (skip-chars-backward " " (- (point) todelete))))
-    (if (/= (point) here)
-        (delete-region (point) here)
-      (delete-backward-char 1))))
+    (if (and (/= (current-column) 0) (eq todelete 0))
+        (setq todelete 4))
+    (skip-chars-backward " " (- (point) todelete))
+    (if (or (eq (point) here) (use-region-p))
+        (progn
+          (skip-chars-forward  " " (+ (point) todelete))
+          (backward-delete-char-untabify 1))
+      (delete-region (point) here))))
 
 (global-set-key [backspace] 'backspace-some)
 
+(set-fringe-mode 0)
+
+(require 'swiper)
+(setq ivy-display-style 'fancy)
+
+(defun swiper-thing-or-empty (&optional arg)
+  "Open swiper window with selected region if it exist (ARG unused)."
+  (interactive)
+  (if (use-region-p)
+      (progn
+        (let ((beg (region-beginning))
+              (end (region-end)))
+          (pop-mark)
+          (swiper (buffer-substring beg end))))
+    (swiper))
+  )
+
+(global-set-key (kbd "C-s") 'swiper-thing-or-empty)
+
 (provide 'other_stuff_config)
 ;;; other_stuff_config.el ends here
-
-
-
