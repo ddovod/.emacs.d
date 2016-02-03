@@ -3,7 +3,7 @@
 ;;; Code:
 
 ;;; Greek letters - C-u C-\ greek ;; C-\ to revert to default
-;;; ς ε ρ τ υ θ ι ο π α σ δ φ γ η ξ κ λ ζ χ ψ ω β ν μ
+;;; ς ε ρ Π τ υ θ ι ο π α σ δ φ γ η ξ κ λ ζ χ ψ ω β ν μ
 
 ;; `((auto-complete-mode . " α")
 ;;   (yas-minor-mode . " γ")
@@ -33,6 +33,7 @@
     (yas-minor-mode . "")
     (abbrev-mode . "")
     (irony-mode . "")
+    (flycheck-mode . "")
     ;; minor modes
     ;; major modes
     (emacs-lisp-mode . "(ELISP)")
@@ -58,6 +59,29 @@ want to use in the modeline *in lieu of* the original.")
                (setq mode-name mode-str)))))
 
 (add-hook 'after-change-major-mode-hook 'clean-mode-line)
+
+(setq projectile-mode-line
+      '(:eval
+        (format "Π[%s]" (projectile-project-name))))
+
+(require 'spaceline-config)
+(spaceline-spacemacs-theme)
+(setq spaceline-line-column-p nil)
+(setq spaceline-buffer-position-p nil)
+(setq spaceline-selection-info-p nil)
+(setq spaceline-which-function-p nil)
+
+(setq powerline-default-separator 'wave)
+
+(require 'which-func)
+(setq-default header-line-format
+              '((which-func-mode ("" which-func-format " "))))
+(setq which-func-unknown "n/a")
+
+;; (require 'semantic)
+;; (semantic-mode 1)
+;; (global-semantic-stickyfunc-mode 1)
+;; (require 'stickyfunc-enhance)
 
 (provide 'clean_mode_line_config)
 ;;; clean_mode_line_config.el ends here

@@ -9,6 +9,8 @@
 (setq flycheck-clang-args (quote ("-std=c++11")))
 (setq flycheck-clang-language-standard "c++11")
 
+(with-eval-after-load 'flycheck
+  (flycheck-pos-tip-mode))
 
 (provide 'flycheck_config)
 ;;; flycheck_config.el ends here

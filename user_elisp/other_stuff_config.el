@@ -140,15 +140,15 @@
 (require 'newcomment)
 (global-set-key (kbd "C-x C-;") 'comment-line)
 
-(require 'anzu)
-(global-anzu-mode +1)
+;; (require 'anzu)
+;; (global-anzu-mode +1)
 
 
-(custom-set-variables
- '(anzu-mode-lighter "")
- '(anzu-deactivate-region t)
- '(anzu-search-threshold 1000)
- '(anzu-replace-to-string-separator " => "))
+;; (custom-set-variables
+;;  '(anzu-mode-lighter "")
+;;  '(anzu-deactivate-region t)
+;;  '(anzu-search-threshold 1000)
+;;  '(anzu-replace-to-string-separator " => "))
 
 (require 'drag-stuff)
 (drag-stuff-global-mode t)
@@ -184,7 +184,8 @@
 
 (global-set-key [backspace] 'backspace-some)
 
-(set-fringe-mode 0)
+;; (set-fringe-mode 0)
+(set-fringe-style '(nil . 0))
 
 (require 'swiper)
 (setq ivy-display-style 'fancy)
@@ -202,6 +203,8 @@
   )
 
 (global-set-key (kbd "C-s") 'swiper-thing-or-empty)
+
+(setq ivy-count-format "(%d/%d) ")
 
 (provide 'other_stuff_config)
 ;;; other_stuff_config.el ends here

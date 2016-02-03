@@ -49,9 +49,6 @@
 (load "~/.emacs.d/user_elisp/other_stuff_config.el")
 
 
-(require 'powerline)
-(powerline-default-theme)
-
 (require 'cmake-mode)
 
 (add-hook 'c-mode-common-hook
