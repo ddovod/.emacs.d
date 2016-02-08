@@ -35,9 +35,6 @@
   '(add-to-list
     'company-backends '(company-irony-c-headers company-irony)))
 
-;; (eval-after-load 'company
-;;   '(add-to-list 'company-backends 'company-irony))
-
 ;;     std::|
 (add-hook 'irony-mode-hook 'company-irony-setup-begin-commands)
 

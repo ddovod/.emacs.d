@@ -1,4 +1,6 @@
-
+;;; package --- Summary
+;;; Commentary:
+;;; Code:
 
 ;; multiple cursors
 (require 'multiple-cursors)
@@ -8,3 +10,11 @@
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+(global-set-key (kbd "C-?") 'mc/insert-numbers)
+
+;;(custom-set-faces
+;; mc/cursor-face
+;;  '((t (:inverse-video t))))
+
+(provide 'multiple_cursors_config)
+;;; multiple_cursors_config.el ends here

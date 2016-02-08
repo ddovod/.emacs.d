@@ -36,4 +36,6 @@
 
 (setq mc/cmds-to-run-once
       '(
+        persp-switch
+        save-some-buffers
         ))

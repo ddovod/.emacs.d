@@ -34,11 +34,16 @@
     (abbrev-mode . "")
     (irony-mode . "")
     (flycheck-mode . "")
+    (elpy-mode . "")
+    (highlight-indentation-mode . "")
+    (smooth-scroll-mode . "")
+    (smartparens-mode . "")
+    
     ;; minor modes
     ;; major modes
-    (emacs-lisp-mode . "(ELISP)")
-    (c++-mode . "(C++)")
-    (cmake-mode . "(CMAKE)")
+    ;; (emacs-lisp-mode . "(ELISP)")
+    ;; (c++-mode . "(C++)")
+    ;; (cmake-mode . "(CMAKE)")
     )
   "Alist for `clean-mode-line'.
 When you add a new element to the alist, keep in mind that you

@@ -42,6 +42,7 @@
 (load "~/.emacs.d/user_elisp/clean_mode_line_config.el")
 (load "~/.emacs.d/user_elisp/protobuf_config.el")
 (load "~/.emacs.d/user_elisp/org_config.el")
+(load "~/.emacs.d/user_elisp/python_config.el")
 
 
 
@@ -58,14 +59,9 @@
               )))
 
 
-(setenv "ERL_LIBS"
-        "$HOME/_code/erlang/hexlet/deps/sync/")
-(exec-path-from-shell-initialize)
-;; (setenv "PATH"
-;;         (shell-command-to-string "source ~/.bashrc; echo -n $PATH"))
-;; (setenv "LD_LIBRARY_PATH"
-;;         (shell-command-to-string "source ~/.bashrc; echo -n $LD_LIBRARY_PATH"))
+(setenv "ERL_LIBS"        "$HOME/_code/erlang/hexlet/deps/sync/")
 (setenv "LD_LIBRARY_PATH" "/usr/local/lib")
+(exec-path-from-shell-initialize)
 
 
 (provide 'init)
@@ -102,3 +98,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(persp-selected-face ((t (:foreground "#ff99ff" :weight bold)))))
+(put 'upcase-region 'disabled nil)

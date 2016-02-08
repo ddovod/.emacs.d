@@ -35,7 +35,6 @@
 
 (global-auto-revert-mode t)
 
-
 ;; tweek
 (defun beginning-of-line-dwim ()
   "Toggle between moving point to the first non-whitespace character, and the start of the line."
@@ -105,11 +104,16 @@
 (require 'magit)
 (global-set-key (kbd "C-x g") 'magit-status)
 
-(require 'sublimity)
-(require 'sublimity-scroll)
-;; (require 'sublimity-map)
-;; (require 'sublimity-attractive)
-(sublimity-mode 1)
+(require 'smooth-scrolling)
+(require 'smooth-scroll)
+(smooth-scroll-mode 1)
+(setq smooth-scroll/vscroll-step-size 5)
+(setq scroll-margin 5)
+(setq smooth-scroll-margin 5
+                scroll-conservatively 101
+                scroll-preserve-screen-position t
+                auto-window-vscroll nil)
+
 
 (global-subword-mode 1)
 
@@ -168,19 +172,22 @@
 (setq compilation-ask-about-save nil)
 (add-hook 'compilation-start-hook 'save-some-buffers)
 
+;;
+(defun get-deletion-count (arg)
+  "Return the amount of spaces to be deleted, ARG is indentation border."
+  (if (eq (current-column) 0) 0
+    (let ((result (mod (current-column) arg)))
+      (if (eq result 0) arg
+        result))))
+
 (defun backspace-some (arg)
   "Deletes some backspaces, ARG unused."
   (interactive "*P")
-  (let ((here (point))
-        (todelete (mod (current-column) 4)))
-    (if (and (/= (current-column) 0) (eq todelete 0))
-        (setq todelete 4))
-    (skip-chars-backward " " (- (point) todelete))
-    (if (or (eq (point) here) (use-region-p))
-        (progn
-          (skip-chars-forward  " " (+ (point) todelete))
-          (backward-delete-char-untabify 1))
-      (delete-region (point) here))))
+  (if (use-region-p) (backward-delete-char-untabify 1)
+    (let ((here (point)))
+      (if (eq 0 (skip-chars-backward " " (- (point) (get-deletion-count 4))))
+          (backward-delete-char-untabify 1)
+        (delete-region (point) here)))))
 
 (global-set-key [backspace] 'backspace-some)
 
@@ -205,6 +212,9 @@
 (global-set-key (kbd "C-s") 'swiper-thing-or-empty)
 
 (setq ivy-count-format "(%d/%d) ")
+
+(smartparens-global-mode 1)
+(require 'smartparens-config)
 
 (provide 'other_stuff_config)
 ;;; other_stuff_config.el ends here
