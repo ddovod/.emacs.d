@@ -38,6 +38,8 @@
     (highlight-indentation-mode . "")
     (smooth-scroll-mode . "")
     (smartparens-mode . "")
+    (hs-minor-mode . "")
+    (erlang-extended-mode . "")
     
     ;; minor modes
     ;; major modes

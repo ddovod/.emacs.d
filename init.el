@@ -77,7 +77,22 @@
  '(anzu-search-threshold 1000)
  '(safe-local-variable-values
    (quote
-    ((org-agenda-files list "main.org" "inbox.org")
+    ((eval setq flycheck-erlang-library-path
+           (file-expand-wildcards "../_build/default/lib/*/ebin"))
+     (flycheck-erlang-library-path list
+                                   (file-expand-wildcards "../_build/default/lib/*/ebin"))
+     (flycheck-erlang-library-path file-expand-wildcards "../_build/default/lib/*/ebin")
+     (flycheck-erlang-library-path quote
+                                   ("../_build/default/lib/*/ebin"))
+     (flycheck-erlang-include-path quote
+                                   ("../include/"))
+     (flycheck-erlang-library-path
+      (quote
+       ("../_build/default/lib/*/ebin")))
+     (flycheck-erlang-include-path
+      (quote
+       ("../include/")))
+     (org-agenda-files list "main.org" "inbox.org")
      (org-agenda-files list
                        (quote "main.org")
                        (quote "inbox.org"))

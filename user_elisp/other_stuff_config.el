@@ -216,5 +216,8 @@
 (smartparens-global-mode 1)
 (require 'smartparens-config)
 
+(add-hook 'prog-mode-hook #'hs-minor-mode)
+(global-set-key (kbd "C-c /") 'hs-toggle-hiding)
+
 (provide 'other_stuff_config)
 ;;; other_stuff_config.el ends here
