@@ -219,5 +219,13 @@
 (add-hook 'prog-mode-hook #'hs-minor-mode)
 (global-set-key (kbd "C-c /") 'hs-toggle-hiding)
 
+;; (add-hook 'prog-mode-hook 'rainbow-identifiers-mode)
+
+(require 'highlight-symbol)
+(add-hook 'prog-mode-hook 'highlight-symbol-mode)
+(global-set-key (kbd "C-}") 'highlight-symbol-next)
+(global-set-key (kbd "C-{") 'highlight-symbol-prev)
+(setq highlight-symbol-idle-delay 1)
+
 (provide 'other_stuff_config)
 ;;; other_stuff_config.el ends here

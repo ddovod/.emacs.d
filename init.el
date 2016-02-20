@@ -112,5 +112,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(highlight-symbol-face ((t (:inherit nil :underline (:color "#8abeb7" :style wave)))))
  '(persp-selected-face ((t (:foreground "#ff99ff" :weight bold)))))
 (put 'upcase-region 'disabled nil)
