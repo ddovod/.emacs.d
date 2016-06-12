@@ -213,8 +213,8 @@
 
 (setq ivy-count-format "(%d/%d) ")
 
-(smartparens-global-mode 1)
-(require 'smartparens-config)
+;; (smartparens-global-mode 1)
+;; (require 'smartparens-config)
 
 (add-hook 'prog-mode-hook #'hs-minor-mode)
 (global-set-key (kbd "C-c /") 'hs-toggle-hiding)

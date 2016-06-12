@@ -49,6 +49,12 @@
 
 (load "~/.emacs.d/user_elisp/other_stuff_config.el")
 
+(add-to-list 'load-path "~/.emacs.d/maxima/emaxima")
+(add-to-list 'load-path "~/.emacs.d/maxima/imaxima")
+(add-to-list 'load-path "~/.emacs.d/maxima/misc")
+
+(require 'imaxima)
+(setq imaxima-fnt-size "Large")
 
 (require 'cmake-mode)
 
@@ -77,7 +83,10 @@
  '(anzu-search-threshold 1000)
  '(safe-local-variable-values
    (quote
-    ((eval setq flycheck-erlang-library-path
+    ((projectile-project-compilation-cmd . "cd build/; cmake ..; make")
+     (projectile-project-run-cmd . "./build/test_app")
+     (projectile-project-compilation-cmd . "cd build/; cmake ..")
+     (eval setq flycheck-erlang-library-path
            (file-expand-wildcards "../_build/default/lib/*/ebin"))
      (flycheck-erlang-library-path list
                                    (file-expand-wildcards "../_build/default/lib/*/ebin"))

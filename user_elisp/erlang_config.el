@@ -42,6 +42,7 @@
 (defun inferior-erlang-with-rebar3 (&optional arg)
   "ARG."
   (interactive)
+  (shell-command "epmd -daemon")
   (inferior-erlang '"rebar3 live --name=\"emacs@space-rocket\""))
 (setq erlang-shell-function 'inferior-erlang-with-rebar3)
 

@@ -4,6 +4,7 @@
 (setq mc/cmds-to-run-for-all
       '(
         backspace-some
+        backward-sexp
         beginning-of-line-dwim
         c-electric-brace
         c-electric-colon
@@ -13,17 +14,25 @@
         c-electric-slash
         c-electric-star
         c-macro-expand
+        comment-line
         dired-mark
         dired-unmark
         dired-unmark-all-marks
         diredp-next-line
         diredp-previous-line
+        drag-stuff-up
         electric-newline-and-maybe-indent
         electric-pair-delete-pair
+        erl-openparen
         eval-and-replace
         eval-last-sexp
         eval-print-last-sexp
+        forward-sexp
         kill-region
+        org-beginning-of-line
+        org-ctrl-c-minus
+        org-end-of-line
+        org-return-indent
         org-self-insert-command
         persp-prev
         smex

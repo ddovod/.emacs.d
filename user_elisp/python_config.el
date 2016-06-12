@@ -10,5 +10,7 @@
 (setq elpy-rpc-backend "jedi")
 (elpy-use-ipython)
 
+()
+
 (provide 'python_config)
 ;;; python_config.el ends here

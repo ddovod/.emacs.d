@@ -23,6 +23,16 @@
 (eval-after-load 'company
   '(push 'company-capf company-backends))
 
+
+
+(require 'company-auctex)
+(company-auctex-init)
+
+(setq TeX-auto-save t)
+(setq TeX-parse-self t)
+(setq-default TeX-master nil)
+
+
 ;; (company-quickhelp-mode 1)
 ;; (setq company-quickhelp-delay 1)
 
