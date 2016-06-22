@@ -227,5 +227,14 @@
 (global-set-key (kbd "C-{") 'highlight-symbol-prev)
 (setq highlight-symbol-idle-delay 1)
 
+;;
+(defun camelcase_to_underscore ()
+  "Convert all camelCase words to underscore_case inside the region."
+  (interactive)
+  (progn
+    (replace-regexp "\\([A-Z]\\)" "_\\1" nil (region-beginning) (region-end))
+    (downcase-region (region-beginning) (region-end)))
+  )
+
 (provide 'other_stuff_config)
 ;;; other_stuff_config.el ends here
