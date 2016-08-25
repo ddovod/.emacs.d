@@ -2,7 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 
-(pyvenv-workon "emacs_python3")
+;; (pyvenv-workon "emacs_python3")
+(pyvenv-workon "emacs_python2")
 
 (require 'elpy)
 (elpy-enable)

@@ -36,10 +36,13 @@
     (flycheck-mode . "")
     (elpy-mode . "")
     (highlight-indentation-mode . "")
+    (highlight-indentation-current-column-mode . "")
     (smooth-scroll-mode . "")
     (smartparens-mode . "")
     (hs-minor-mode . "")
     (erlang-extended-mode . "")
+    (highlight-symbol-mode . "")
+    (super-save-mode . "")
     
     ;; minor modes
     ;; major modes

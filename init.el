@@ -63,6 +63,7 @@
             (if (derived-mode-p 'c-mode 'c++-mode)
                 (cppcm-reload-all)
               )))
+(setq cppcm-write-flymake-makefile nil)
 
 
 (setenv "ERL_LIBS"        "$HOME/_code/erlang/hexlet/deps/sync/")
@@ -124,3 +125,4 @@
  '(highlight-symbol-face ((t (:inherit nil :underline (:color "#8abeb7" :style wave)))))
  '(persp-selected-face ((t (:foreground "#ff99ff" :weight bold)))))
 (put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)

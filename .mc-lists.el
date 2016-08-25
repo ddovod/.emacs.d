@@ -20,10 +20,14 @@
         dired-unmark-all-marks
         diredp-next-line
         diredp-previous-line
+        drag-stuff-right
         drag-stuff-up
         electric-newline-and-maybe-indent
         electric-pair-delete-pair
         erl-openparen
+        erlang-electric-comma
+        erlang-electric-gt
+        erlang-electric-semicolon
         eval-and-replace
         eval-last-sexp
         eval-print-last-sexp
@@ -45,6 +49,9 @@
 
 (setq mc/cmds-to-run-once
       '(
+        ein:worksheet-execute-cell-and-goto-next
+        handle-switch-frame
+        imenu
         persp-switch
         save-some-buffers
         ))

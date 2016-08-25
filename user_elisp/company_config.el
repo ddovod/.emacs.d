@@ -20,10 +20,14 @@
 (eval-after-load 'company
   '(push 'company-restclient company-backends))
 
-(eval-after-load 'company
-  '(push 'company-capf company-backends))
 
+;; (eval-after-load 'company
+;;   '(push 'company-capf company-backends))
 
+(require 'company-dabbrev)
+(setq company-dabbrev-downcase nil)
+(setq company-dabbrev-ignore-case nil)
+(setq company-dabbrev-minimum-length 1)
 
 (require 'company-auctex)
 (company-auctex-init)
@@ -32,11 +36,11 @@
 (setq TeX-parse-self t)
 (setq-default TeX-master nil)
 
-
 ;; (company-quickhelp-mode 1)
 ;; (setq company-quickhelp-delay 1)
 
 ;; (with-eval-after-load 'company
 ;;   (company-flx-mode +1))
+;; (setq company-flx-limit 100)
 
 ;;; company_config.el ends here

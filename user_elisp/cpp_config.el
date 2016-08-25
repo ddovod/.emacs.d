@@ -8,6 +8,7 @@
 (setq c-default-style "bsd"
       indent-tabs-mode nil
       c-basic-offset 4)
+(c-set-offset 'case-label '+)
 
 ;; (defun test-test-test ()
 ;;   "ARG."

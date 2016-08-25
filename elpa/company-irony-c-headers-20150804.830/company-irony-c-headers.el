@@ -174,6 +174,8 @@
             (cons match t)
           match))))
 
+(defvar company-irony-c-headers-candidates-comparator 'string<)
+
 (defun company-irony-c-headers--candidates-for (prefix dir)
   "Return a list of candidates for PREFIX in directory DIR."
   (let* ((prefixdir (file-name-directory prefix))
@@ -191,7 +193,7 @@
                 (directory-file-name f) '("." "..") :test 'equal))
              (file-name-all-completions prefixfile subdir)))
       ;; Sort candidates.
-      (setq candidates (sort candidates #'string<))
+      (setq candidates (sort candidates #'company-irony-c-headers-candidates-comparator))
       ;; Add property.
       (mapcar
        (lambda (c)

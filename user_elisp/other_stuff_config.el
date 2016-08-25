@@ -110,9 +110,9 @@
 (setq smooth-scroll/vscroll-step-size 5)
 (setq scroll-margin 5)
 (setq smooth-scroll-margin 5
-                scroll-conservatively 101
-                scroll-preserve-screen-position t
-                auto-window-vscroll nil)
+      scroll-conservatively 101
+      scroll-preserve-screen-position t
+      auto-window-vscroll nil)
 
 
 (global-subword-mode 1)
@@ -235,6 +235,43 @@
     (replace-regexp "\\([A-Z]\\)" "_\\1" nil (region-beginning) (region-end))
     (downcase-region (region-beginning) (region-end)))
   )
+
+(require 'string-inflection)
+
+(require 'shackle)
+(setq shackle-rules
+      '((compilation-mode :align below :ratio 0.2))
+      shackle-default-rule '(:select t))
+(shackle-mode 1)
+
+(require 'ansi-color)
+(defun colorize-compilation-buffer ()
+  "[32mBuild succeed.[0m  =>  Build succeed."
+  (let ((inhibit-read-only t))
+    (ansi-color-apply-on-region (point-min) (point-max))))
+(add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
+
+(require 'super-save)
+(setq super-save-idle-duration 1)
+(setq super-save-auto-save-when-idle t)
+(super-save-mode +1)
+(setq auto-save-default nil)
+
+;; (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;; (require 'cl-lib)
+;; (fset 'original-write-region (symbol-function 'write-region))
+;; (defun silent-write-region (start end filename &optional append
+;;                                   visit lockname mustbenew)
+;;   "Suppress the \"Wrote file\"message in `write-region'."
+;;   (original-write-region start end filename append 'nomsg lockname mustbenew))
+
+;; (cl-letf (((symbol-function 'write-region)
+;;            #'silent-write-region))
+;;   (save-buffer (current-buffer))
+;;   ;; take care of mtime changes
+;;   (set-visited-file-modtime)
+;;   (set-buffer-modified-p nil))
 
 (provide 'other_stuff_config)
 ;;; other_stuff_config.el ends here
