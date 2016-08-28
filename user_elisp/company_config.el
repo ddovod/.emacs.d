@@ -36,6 +36,14 @@
 (setq TeX-parse-self t)
 (setq-default TeX-master nil)
 
+
+(eval-after-load 'company
+  '(push 'company-pseudo-tooltip-frontend company-frontends))
+(eval-after-load 'company
+  '(delete 'company-pseudo-tooltip-unless-just-one-frontend company-frontends))
+(eval-after-load 'company
+  '(delete 'company-preview-if-just-one-frontend company-frontends))
+
 ;; (company-quickhelp-mode 1)
 ;; (setq company-quickhelp-delay 1)
 

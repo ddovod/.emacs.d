@@ -240,7 +240,7 @@
 
 (require 'shackle)
 (setq shackle-rules
-      '((compilation-mode :align below :ratio 0.2))
+      '((compilation-mode :align below :ratio 0.1))
       shackle-default-rule '(:select t))
 (shackle-mode 1)
 
@@ -272,6 +272,15 @@
 ;;   ;; take care of mtime changes
 ;;   (set-visited-file-modtime)
 ;;   (set-buffer-modified-p nil))
+
+
+(require 'omnisharp)
+(setq omnisharp-server-executable-path "~/Downloads/omnisharp/OmniSharp/bin/Debug/OmniSharp.exe")
+(add-hook 'csharp-mode-hook 'omnisharp-mode)
+(require 'company)
+(eval-after-load 'company
+  '(push 'company-omnisharp company-backends))
+
 
 (provide 'other_stuff_config)
 ;;; other_stuff_config.el ends here

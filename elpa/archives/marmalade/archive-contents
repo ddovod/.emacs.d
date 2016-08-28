@@ -1,11 +1,4 @@
 (1
- (emacs-profiles .
-		 [(20160730 2030)
-		  ((emacs
-		    (24))
-		   (cl-lib
-		    (0 5)))
-		  "Configuration profiles for Emacs" single])
  (zone-nyan .
 	    [(0 2 2)
 	     ((esxml
@@ -1901,7 +1894,7 @@
 	       (1 1)))
 	     "Mote minor mode" single])
  (monroe .
-	 [(0 2 0)
+	 [(0 3 1)
 	  nil "Yet another client for nREPL" single])
  (monokai-theme .
 		[(0 0 12)
@@ -3772,7 +3765,7 @@
 	       [(0 2 2)
 		nil "Aspell extra dictionary for Drupal" tar])
  (drupal-mode .
-	      [(0 7 0)
+	      [(0 7 1)
 	       ((php-mode
 		 (1 5 0)))
 	       "Advanced minor mode for Drupal development" tar])
@@ -4520,7 +4513,7 @@
 		 (24 1)))
 	       "Ansible documentation Minor Mode" single])
  (annotate .
-	   [(0 4 4)
+	   [(0 4 5)
 	    nil "annotate files without changing them" single])
  (angular-snippets .
 		   [(0 2 3)
