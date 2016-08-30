@@ -196,6 +196,7 @@
 
 (require 'swiper)
 (setq ivy-display-style 'fancy)
+;; (setq swiper-action-recenter t)
 
 (defun swiper-thing-or-empty (&optional arg)
   "Open swiper window with selected region if it exist (ARG unused)."
@@ -282,5 +283,8 @@
   '(push 'company-omnisharp company-backends))
 
 
+(set-face-background 'highlight-indentation-current-column-face "#393939")
+
+                                    
 (provide 'other_stuff_config)
 ;;; other_stuff_config.el ends here

@@ -44,8 +44,9 @@
 (eval-after-load 'company
   '(delete 'company-preview-if-just-one-frontend company-frontends))
 
-;; (company-quickhelp-mode 1)
-;; (setq company-quickhelp-delay 1)
+(require 'company-quickhelp)
+(company-quickhelp-mode 1)
+(setq company-quickhelp-delay 1)
 
 ;; (with-eval-after-load 'company
 ;;   (company-flx-mode +1))

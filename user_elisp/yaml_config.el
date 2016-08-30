@@ -9,7 +9,9 @@
           '(lambda ()
              (define-key yaml-mode-map "\C-m" 'newline-and-indent)
              (highlight-indentation-mode)
-             (highlight-indentation-current-column-mode)))
+             (highlight-indentation-current-column-mode)
+             (highlight-indentation-set-offset 2)
+             ))
 
 (provide 'yaml_config)
 ;;; yaml_config.el ends here
