@@ -84,7 +84,25 @@
  '(anzu-search-threshold 1000)
  '(safe-local-variable-values
    (quote
-    ((projectile-project-compilation-cmd . "cd build/; cmake ..; make")
+    ((projectile-project-run-cmd . "pushd build; make -j4; pushd project; ./thieves; popd; popd")
+     (projectile-project-run-cmd . "pushd build; make -j4; ./project/thieves; popd")
+     (projectile-project-compilation-cmd . "pushd build; make -j4; popd")
+     (projectile-project-run-cmd . "echo \"Wat?\"")
+     (projectile-project-compilation-cmd . "pushd build; make; popd")
+     (projectile-project-test-cmd function
+                                  (gud-gdb "build/bot"))
+     (projectile-project-test-cmd quote
+                                  (gud-gdb "build/bot"))
+     (projectile-project-run-cmd . "./compile.sh; ./run_simulation.sh")
+     (projectile-project-run-cmd . "compile.sh; ./run_simulation.sh")
+     (projectile-project-compilation-cmd . "./compile.sh")
+     (projectile-project-run-cmd . "./run_simulation.sh")
+     (projectile-project-run-cmd . "cd ./../local-runner; ./local-runner.sh; cd ./../bot; ./build/bot")
+     (projectile-project-run-cmd . "./../local-runner/local-runner.sh; ./build/bot")
+     (projectile-project-run-cmd . "../local-runner/local-runner.sh; ./build/bot")
+     (projectile-project-run-cmd . "./build/bot")
+     (projectile-project-compilation-cmd . "cd build; cmake ..; make")
+     (projectile-project-compilation-cmd . "cd build/; cmake ..; make")
      (projectile-project-run-cmd . "./build/test_app")
      (projectile-project-compilation-cmd . "cd build/; cmake ..")
      (eval setq flycheck-erlang-library-path

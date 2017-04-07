@@ -10,6 +10,7 @@
         c-electric-colon
         c-electric-lt-gt
         c-electric-paren
+        c-electric-pound
         c-electric-semi&comma
         c-electric-slash
         c-electric-star
@@ -24,6 +25,7 @@
         drag-stuff-up
         electric-newline-and-maybe-indent
         electric-pair-delete-pair
+        elpy-nav-forward-indent
         erl-openparen
         erlang-electric-comma
         erlang-electric-gt
@@ -53,5 +55,6 @@
         handle-switch-frame
         imenu
         persp-switch
+        projectile-run-project
         save-some-buffers
         ))

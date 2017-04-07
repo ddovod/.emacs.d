@@ -285,6 +285,30 @@
 
 (set-face-background 'highlight-indentation-current-column-face "#393939")
 
-                                    
+(require 'visual-regexp)
+(define-key global-map (kbd "C-c r") 'vr/replace)
+(define-key global-map (kbd "C-c q") 'vr/query-replace)
+;; if you use multiple-cursors, this is for you:
+(define-key global-map (kbd "C-c m") 'vr/mc-mark)
+
+(add-to-list 'load-path "/home/ddovod/.emacs.d/caffe-mode")
+(require 'caffe-mode)
+(autoload 'caffe-mode "caffe-mode" "Major mode for Caffe" t)
+(add-to-list 'auto-mode-alist '("\\.prototxt\\'" . caffe-mode))
+
+(require 'lua-mode)
+(setq lua-indent-level 4)
+
+(defun list-all-buffers (&optional files-only)
+  "Display a list of names of existing buffers.
+The list is displayed in a buffer named `*Buffer List*'.
+Non-null optional arg FILES-ONLY means mention only file buffers.
+
+For more information, see the function `buffer-menu'."
+  (interactive "P")
+  (display-buffer (list-buffers-noselect files-only (buffer-list))))
+
+(define-key ctl-x-map "\C-b" 'list-all-buffers)
+
 (provide 'other_stuff_config)
 ;;; other_stuff_config.el ends here
