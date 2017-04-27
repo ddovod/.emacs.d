@@ -48,6 +48,9 @@
 (company-quickhelp-mode 1)
 (setq company-quickhelp-delay 1)
 
+(setq company-minimum-prefix-length 1)
+(setq company-idle-delay 0)
+
 ;; (with-eval-after-load 'company
 ;;   (company-flx-mode +1))
 ;; (setq company-flx-limit 100)
