@@ -10,8 +10,6 @@
 (eval-after-load 'company
   '(delete 'company-semantic company-backends))
 
-(setq company-minimum-prefix-length 1)
-
 (eval-after-load 'company
   '(push 'company-readline company-backends))
 (add-hook 'rlc-no-readline-hook (lambda () (company-mode -1)))

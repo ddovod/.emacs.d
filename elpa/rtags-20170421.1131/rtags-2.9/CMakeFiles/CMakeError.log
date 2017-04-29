@@ -1,0 +1,135 @@
+Determining if the mach_absolute_time exist failed with the following output:
+Change Dir: /home/ddovod/.emacs.d/elpa/rtags-20170421.1131/rtags-2.9/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_4dfc7/fast"
+/usr/bin/make -f CMakeFiles/cmTC_4dfc7.dir/build.make CMakeFiles/cmTC_4dfc7.dir/build
+make[1]: Entering directory '/home/ddovod/.emacs.d/elpa/rtags-20170421.1131/rtags-2.9/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_4dfc7.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++     -I/usr/local/include -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -Wextra -Wpointer-arith -Wnon-virtual-dtor -Wshadow -Wformat -pthread -std=c++11    -o CMakeFiles/cmTC_4dfc7.dir/CheckSymbolExists.cxx.o -c /home/ddovod/.emacs.d/elpa/rtags-20170421.1131/rtags-2.9/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+/home/ddovod/.emacs.d/elpa/rtags-20170421.1131/rtags-2.9/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:2:23: fatal error: mach/mach.h: No such file or directory
+ #include <mach/mach.h>
+                       ^
+compilation terminated.
+CMakeFiles/cmTC_4dfc7.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_4dfc7.dir/CheckSymbolExists.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_4dfc7.dir/CheckSymbolExists.cxx.o] Error 1
+make[1]: Leaving directory '/home/ddovod/.emacs.d/elpa/rtags-20170421.1131/rtags-2.9/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_4dfc7/fast' failed
+make: *** [cmTC_4dfc7/fast] Error 2
+
+File /home/ddovod/.emacs.d/elpa/rtags-20170421.1131/rtags-2.9/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <mach/mach.h>
+#include <mach/mach_time.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef mach_absolute_time
+  return ((int*)(&mach_absolute_time))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the kqueue exist failed with the following output:
+Change Dir: /home/ddovod/.emacs.d/elpa/rtags-20170421.1131/rtags-2.9/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_a0100/fast"
+/usr/bin/make -f CMakeFiles/cmTC_a0100.dir/build.make CMakeFiles/cmTC_a0100.dir/build
+make[1]: Entering directory '/home/ddovod/.emacs.d/elpa/rtags-20170421.1131/rtags-2.9/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_a0100.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++     -I/usr/local/include -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -Wextra -Wpointer-arith -Wnon-virtual-dtor -Wshadow -Wformat -pthread -std=c++11    -o CMakeFiles/cmTC_a0100.dir/CheckSymbolExists.cxx.o -c /home/ddovod/.emacs.d/elpa/rtags-20170421.1131/rtags-2.9/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+/home/ddovod/.emacs.d/elpa/rtags-20170421.1131/rtags-2.9/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:3:23: fatal error: sys/event.h: No such file or directory
+ #include <sys/event.h>
+                       ^
+compilation terminated.
+CMakeFiles/cmTC_a0100.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_a0100.dir/CheckSymbolExists.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_a0100.dir/CheckSymbolExists.cxx.o] Error 1
+make[1]: Leaving directory '/home/ddovod/.emacs.d/elpa/rtags-20170421.1131/rtags-2.9/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_a0100/fast' failed
+make: *** [cmTC_a0100/fast] Error 2
+
+File /home/ddovod/.emacs.d/elpa/rtags-20170421.1131/rtags-2.9/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <sys/types.h>
+#include <sys/event.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef kqueue
+  return ((int*)(&kqueue))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the SO_NOSIGPIPE exist failed with the following output:
+Change Dir: /home/ddovod/.emacs.d/elpa/rtags-20170421.1131/rtags-2.9/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_1af78/fast"
+/usr/bin/make -f CMakeFiles/cmTC_1af78.dir/build.make CMakeFiles/cmTC_1af78.dir/build
+make[1]: Entering directory '/home/ddovod/.emacs.d/elpa/rtags-20170421.1131/rtags-2.9/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_1af78.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++     -I/usr/local/include -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -Wextra -Wpointer-arith -Wnon-virtual-dtor -Wshadow -Wformat -pthread -std=c++11    -o CMakeFiles/cmTC_1af78.dir/CheckSymbolExists.cxx.o -c /home/ddovod/.emacs.d/elpa/rtags-20170421.1131/rtags-2.9/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+/home/ddovod/.emacs.d/elpa/rtags-20170421.1131/rtags-2.9/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main(int, char**)’:
+/home/ddovod/.emacs.d/elpa/rtags-20170421.1131/rtags-2.9/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:9:19: error: ‘SO_NOSIGPIPE’ was not declared in this scope
+   return ((int*)(&SO_NOSIGPIPE))[argc];
+                   ^~~~~~~~~~~~
+CMakeFiles/cmTC_1af78.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_1af78.dir/CheckSymbolExists.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_1af78.dir/CheckSymbolExists.cxx.o] Error 1
+make[1]: Leaving directory '/home/ddovod/.emacs.d/elpa/rtags-20170421.1131/rtags-2.9/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_1af78/fast' failed
+make: *** [cmTC_1af78/fast] Error 2
+
+File /home/ddovod/.emacs.d/elpa/rtags-20170421.1131/rtags-2.9/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <sys/types.h>
+#include <sys/socket.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef SO_NOSIGPIPE
+  return ((int*)(&SO_NOSIGPIPE))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the GetLogicalProcessorInformation exist failed with the following output:
+Change Dir: /home/ddovod/.emacs.d/elpa/rtags-20170421.1131/rtags-2.9/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_5aa68/fast"
+/usr/bin/make -f CMakeFiles/cmTC_5aa68.dir/build.make CMakeFiles/cmTC_5aa68.dir/build
+make[1]: Entering directory '/home/ddovod/.emacs.d/elpa/rtags-20170421.1131/rtags-2.9/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_5aa68.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++     -I/usr/local/include -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -Wextra -Wpointer-arith -Wnon-virtual-dtor -Wshadow -Wformat -pthread -std=c++11    -o CMakeFiles/cmTC_5aa68.dir/CheckSymbolExists.cxx.o -c /home/ddovod/.emacs.d/elpa/rtags-20170421.1131/rtags-2.9/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+/home/ddovod/.emacs.d/elpa/rtags-20170421.1131/rtags-2.9/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:2:21: fatal error: windows.h: No such file or directory
+ #include <windows.h>
+                     ^
+compilation terminated.
+CMakeFiles/cmTC_5aa68.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_5aa68.dir/CheckSymbolExists.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_5aa68.dir/CheckSymbolExists.cxx.o] Error 1
+make[1]: Leaving directory '/home/ddovod/.emacs.d/elpa/rtags-20170421.1131/rtags-2.9/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_5aa68/fast' failed
+make: *** [cmTC_5aa68/fast] Error 2
+
+File /home/ddovod/.emacs.d/elpa/rtags-20170421.1131/rtags-2.9/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <windows.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef GetLogicalProcessorInformation
+  return ((int*)(&GetLogicalProcessorInformation))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+

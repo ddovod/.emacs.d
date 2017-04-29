@@ -35,12 +35,12 @@
 (load "~/.emacs.d/user_elisp/yasnippet_config.el")
 (load "~/.emacs.d/user_elisp/irony_config.el")
 ;;(load "~/.emacs.d/user_elisp/ocaml_config.el")
-(load "~/.emacs.d/user_elisp/rtags_config.el")
+;; (load "~/.emacs.d/user_elisp/rtags_config.el")
 (load "~/.emacs.d/user_elisp/git_config.el")
 (load "~/.emacs.d/user_elisp/expand_region_config.el")
 (load "~/.emacs.d/user_elisp/disable_flymake_config.el")
 (load "~/.emacs.d/user_elisp/clean_mode_line_config.el")
-(load "~/.emacs.d/user_elisp/protobuf_config.el")
+;; (load "~/.emacs.d/user_elisp/protobuf_config.el")
 (load "~/.emacs.d/user_elisp/org_config.el")
 (load "~/.emacs.d/user_elisp/python_config.el")
 
@@ -82,6 +82,9 @@
  '(anzu-mode-lighter "")
  '(anzu-replace-to-string-separator " => ")
  '(anzu-search-threshold 1000)
+ '(package-selected-packages
+   (quote
+    (yascroll yaml-mode visual-regexp tuareg super-save sublimity string-inflection stickyfunc-enhance speed-type spaceline solarized-theme smooth-scrolling smooth-scroll sml-modeline smex smartparens smart-mode-line shackle robe realgud readline-complete rainbow-mode rainbow-identifiers projectile php-mode perspective page-break-lines org-bullets omnisharp nyan-mode nurumacs nlinum multiple-cursors moe-theme magit-gitflow latex-preview-pane keyfreq json-mode imenu-anywhere iedit ido-vertical-mode ido-ubiquitous ido-hacks htmlize highlight-thing highlight-symbol glsl-mode flycheck-rtags flycheck-protobuf flycheck-pos-tip flycheck-ocaml flycheck-irony flx-ido expand-region exec-path-from-shell erlang elpy ein drag-stuff dired+ desktop csv-mode cpputils-cmake connection company-rtags company-restclient company-quickhelp company-lua company-irony-c-headers company-irony company-flx company-c-headers company-auctex column-marker color-theme-sanityinc-tomorrow color-identifiers-mode cmake-mode bury-successful-compilation backup-each-save auto-highlight-symbol anzu ample-theme ag ace-jump-mode)))
  '(safe-local-variable-values
    (quote
     ((projectile-project-run-cmd . "pushd build; make -j4; pushd project; ./thieves; popd; popd")

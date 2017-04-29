@@ -8,7 +8,8 @@
 (setq file-name-coding-system 'utf-8)
 (setq scroll-step 1)
 (global-hl-line-mode 1)
-(global-linum-mode t)
+;; (global-linum-mode t)
+(global-nlinum-mode 1)
 (fset 'yes-or-no-p 'y-or-n-p)
 (setq kill-buffer-query-functions
       (remq 'process-kill-buffer-query-function
@@ -156,6 +157,7 @@
 
 (require 'drag-stuff)
 (drag-stuff-global-mode t)
+(drag-stuff-define-keys)
 
 ;; disable bold and italic
 (mapc
@@ -257,6 +259,9 @@
 (setq super-save-auto-save-when-idle t)
 (super-save-mode +1)
 (setq auto-save-default nil)
+(setq inhibit-message t)
+;; (let ((inhibit-message t))
+  ;; (message "Listen to me, you!"))
 
 ;; (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
