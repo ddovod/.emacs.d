@@ -11,7 +11,10 @@
 (setq elpy-rpc-backend "jedi")
 (elpy-use-ipython)
 
-()
+(define-key elpy-mode-map (kbd "<C-down>") 'forward-paragraph)
+(define-key elpy-mode-map (kbd "<C-up>") 'backward-paragraph)
+(define-key elpy-mode-map (kbd "<C-left>") 'subword-backward)
+(define-key elpy-mode-map (kbd "<C-right>") 'subword-forward)
 
 (provide 'python_config)
 ;;; python_config.el ends here

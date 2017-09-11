@@ -87,7 +87,35 @@
     (yascroll yaml-mode visual-regexp tuareg super-save sublimity string-inflection stickyfunc-enhance speed-type spaceline solarized-theme smooth-scrolling smooth-scroll sml-modeline smex smartparens smart-mode-line shackle robe realgud readline-complete rainbow-mode rainbow-identifiers projectile php-mode perspective page-break-lines org-bullets omnisharp nyan-mode nurumacs nlinum multiple-cursors moe-theme magit-gitflow latex-preview-pane keyfreq json-mode imenu-anywhere iedit ido-vertical-mode ido-ubiquitous ido-hacks htmlize highlight-thing highlight-symbol glsl-mode flycheck-rtags flycheck-protobuf flycheck-pos-tip flycheck-ocaml flycheck-irony flx-ido expand-region exec-path-from-shell erlang elpy ein drag-stuff dired+ desktop csv-mode cpputils-cmake connection company-rtags company-restclient company-quickhelp company-lua company-irony-c-headers company-irony company-flx company-c-headers company-auctex column-marker color-theme-sanityinc-tomorrow color-identifiers-mode cmake-mode bury-successful-compilation backup-each-save auto-highlight-symbol anzu ample-theme ag ace-jump-mode)))
  '(safe-local-variable-values
    (quote
-    ((projectile-project-run-cmd . "pushd build; make -j4; pushd project; ./thieves; popd; popd")
+    ((projectile-run-cmd function multi-compile-run)
+     (projectile-compilation-cmd function multi-compile-run)
+     (projectile-project-run-cmd function multi-compile-run)
+     (projectile-project-compilation-cmd function multi-compile-run)
+     (projectile-project-run-cmd . multi-compile-run)
+     (projectile-project-compilation-cmd . multi-compile-run)
+     (projectile-project-run-cmd quote multi-compile-run)
+     (projectile-project-compilation-cmd quote multi-compile-run)
+     (multi-compile-alist
+      ("\\.*"
+       ("cocos-compile-linux" . "cocos compile -p Linux")
+       ("cocos-compile-android" . "compile-android"))
+      ("\\.*"
+       ("cocos-run-linux" . "cocos run -p Linux")
+       ("cocos-run-android" . "run-android")))
+     (multi-compile-alist
+      ("\\.*"
+       ("cocos-compile-linux" . "compile-linux")
+       ("cocos-compile-android" . "compile-android")))
+     (multi-compile-alist quote
+                          (("\\.*"
+                            ("cocos-compile-linux" . "compile-linux")
+                            ("cocos-compile-android" . "compile-android"))))
+     (make-variable-buffer-local
+      (quote multi-compile-alist))
+     (projectile-project-run-cmd . "pushd build && cmake .. && make && ./ncalc")
+     (projectile-project-compilation-cmd . "pushd build && cmake .. && make")
+     (projectile-project-run-cmd . "cocos compile -p Linux && ./build/bin/MyGame")
+     (projectile-project-run-cmd . "pushd build; make -j4; pushd project; ./thieves; popd; popd")
      (projectile-project-run-cmd . "pushd build; make -j4; ./project/thieves; popd")
      (projectile-project-compilation-cmd . "pushd build; make -j4; popd")
      (projectile-project-run-cmd . "echo \"Wat?\"")

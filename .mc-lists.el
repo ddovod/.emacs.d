@@ -44,6 +44,7 @@
         smex
         subword-left
         subword-right
+        upcase-region
         yaml-electric-backspace
         yaml-electric-dash-and-dot
         yas-expand
