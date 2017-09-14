@@ -280,12 +280,12 @@
 ;;   (set-buffer-modified-p nil))
 
 
-(require 'omnisharp)
-(setq omnisharp-server-executable-path "~/Downloads/omnisharp/OmniSharp/bin/Debug/OmniSharp.exe")
-(add-hook 'csharp-mode-hook 'omnisharp-mode)
-(require 'company)
-(eval-after-load 'company
-  '(push 'company-omnisharp company-backends))
+;; (require 'omnisharp)
+;; (setq omnisharp-server-executable-path "~/Downloads/omnisharp/OmniSharp/bin/Debug/OmniSharp.exe")
+;; (add-hook 'csharp-mode-hook 'omnisharp-mode)
+;; (require 'company)
+;; (eval-after-load 'company
+  ;; '(push 'company-omnisharp company-backends))
 
 
 (set-face-background 'highlight-indentation-current-column-face "#393939")

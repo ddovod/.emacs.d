@@ -9,7 +9,7 @@
 (elpy-enable)
 (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
 (setq elpy-rpc-backend "jedi")
-(elpy-use-ipython)
+;; (elpy-use-ipython)
 
 (define-key elpy-mode-map (kbd "<C-down>") 'forward-paragraph)
 (define-key elpy-mode-map (kbd "<C-up>") 'backward-paragraph)
