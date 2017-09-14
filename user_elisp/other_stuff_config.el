@@ -259,7 +259,7 @@
 (setq super-save-auto-save-when-idle t)
 (super-save-mode +1)
 (setq auto-save-default nil)
-(setq inhibit-message t)
+;; (setq inhibit-message t)
 ;; (let ((inhibit-message t))
   ;; (message "Listen to me, you!"))
 
