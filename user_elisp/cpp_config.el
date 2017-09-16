@@ -10,6 +10,13 @@
       c-basic-offset 4)
 (c-set-offset 'case-label '+)
 
+(setq c-basic-offset 4)
+(add-hook 'java-mode-hook
+          '(lambda ()
+             (setq c-basic-offset 2)
+             )
+          )
+
 ;; (defun test-test-test ()
 ;;   "ARG."
 ;;   (interactive)

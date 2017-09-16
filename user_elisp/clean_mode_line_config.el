@@ -43,6 +43,7 @@
     (erlang-extended-mode . "")
     (highlight-symbol-mode . "")
     (super-save-mode . "")
+    (auto-revert-mode . "")
     
     ;; minor modes
     ;; major modes

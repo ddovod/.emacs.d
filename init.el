@@ -15,11 +15,8 @@
 
 (load "~/.emacs.d/user_elisp/packages_config.el")
 (load "~/.emacs.d/user_elisp/theme_config.el")
-(load "~/.emacs.d/user_elisp/nyan_config.el")
-(load "~/.emacs.d/user_elisp/rainbow_config.el")
 (load "~/.emacs.d/user_elisp/parens_config.el")
 (load "~/.emacs.d/user_elisp/font_config.el")
-(load "~/.emacs.d/user_elisp/ruby_config.el")
 (load "~/.emacs.d/user_elisp/company_config.el")
 (load "~/.emacs.d/user_elisp/windmove_config.el")
 (load "~/.emacs.d/user_elisp/backup_config.el")
@@ -34,36 +31,35 @@
 (load "~/.emacs.d/user_elisp/flycheck_config.el")
 (load "~/.emacs.d/user_elisp/yasnippet_config.el")
 (load "~/.emacs.d/user_elisp/irony_config.el")
-;;(load "~/.emacs.d/user_elisp/ocaml_config.el")
-;; (load "~/.emacs.d/user_elisp/rtags_config.el")
 (load "~/.emacs.d/user_elisp/git_config.el")
 (load "~/.emacs.d/user_elisp/expand_region_config.el")
 (load "~/.emacs.d/user_elisp/disable_flymake_config.el")
 (load "~/.emacs.d/user_elisp/clean_mode_line_config.el")
-;; (load "~/.emacs.d/user_elisp/protobuf_config.el")
 (load "~/.emacs.d/user_elisp/org_config.el")
 (load "~/.emacs.d/user_elisp/python_config.el")
 
-
-
-
 (load "~/.emacs.d/user_elisp/other_stuff_config.el")
-
-(add-to-list 'load-path "~/.emacs.d/maxima/emaxima")
-(add-to-list 'load-path "~/.emacs.d/maxima/imaxima")
-(add-to-list 'load-path "~/.emacs.d/maxima/misc")
-
-(require 'imaxima)
-(setq imaxima-fnt-size "Large")
 
 (require 'cmake-mode)
 
+(require 'cpputils-cmake)
 (add-hook 'c-mode-common-hook
           (lambda ()
             (if (derived-mode-p 'c-mode 'c++-mode)
                 (cppcm-reload-all)
               )))
+;;
 (setq cppcm-write-flymake-makefile nil)
+;; optional, avoid typing full path when starting gdb
+(global-set-key (kbd "C-c C-g")
+                '(lambda ()(interactive) (gud-gdb (concat "gdb --fullname " (cppcm-get-exe-path-current-buffer)))))
+(add-hook 'c-mode-common-hook
+          (lambda ()
+            (if (derived-mode-p 'c-mode 'c++-mode)
+                (if  (not (or (string-match "^/usr/local/include/.*" buffer-file-name)
+                              (string-match "^/usr/src/linux/include/.*" buffer-file-name)))
+                    (cppcm-reload-all))
+              )))
 
 
 (setenv "ERL_LIBS"        "$HOME/_code/erlang/hexlet/deps/sync/")
@@ -84,7 +80,7 @@
  '(anzu-search-threshold 1000)
  '(package-selected-packages
    (quote
-    (company swiper ivy yascroll yaml-mode visual-regexp tuareg super-save sublimity string-inflection stickyfunc-enhance speed-type spaceline solarized-theme smooth-scrolling smooth-scroll sml-modeline smex smartparens smart-mode-line shackle robe realgud readline-complete rainbow-mode rainbow-identifiers projectile php-mode perspective page-break-lines org-bullets omnisharp nyan-mode nurumacs nlinum multiple-cursors moe-theme magit-gitflow latex-preview-pane keyfreq json-mode imenu-anywhere iedit ido-vertical-mode ido-ubiquitous ido-hacks htmlize highlight-thing highlight-symbol glsl-mode flycheck-rtags flycheck-protobuf flycheck-ocaml flycheck-irony flx-ido drag-stuff dired+ desktop csv-mode connection company-rtags company-lua company-irony-c-headers company-flx company-auctex column-marker color-identifiers-mode bury-successful-compilation backup-each-save auto-highlight-symbol ample-theme ace-jump-mode)))
+    (counsel company swiper ivy yascroll yaml-mode visual-regexp tuareg super-save sublimity string-inflection stickyfunc-enhance speed-type spaceline solarized-theme smooth-scrolling smooth-scroll sml-modeline smex smartparens smart-mode-line shackle robe realgud readline-complete rainbow-mode rainbow-identifiers projectile php-mode perspective page-break-lines org-bullets omnisharp nyan-mode nurumacs nlinum multiple-cursors moe-theme magit-gitflow latex-preview-pane keyfreq json-mode imenu-anywhere iedit ido-vertical-mode ido-ubiquitous ido-hacks htmlize highlight-thing highlight-symbol glsl-mode flycheck-rtags flycheck-protobuf flycheck-ocaml flycheck-irony flx-ido drag-stuff dired+ desktop csv-mode connection company-rtags company-lua company-irony-c-headers company-flx company-auctex column-marker color-identifiers-mode bury-successful-compilation backup-each-save auto-highlight-symbol ample-theme ace-jump-mode)))
  '(safe-local-variable-values
    (quote
     ((projectile-run-cmd function multi-compile-run)

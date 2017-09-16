@@ -1,13 +1,4 @@
 (1
- (emacs-daily-events .
-		     [(20170911 2235)
-		      ((emacs
-			(24))
-		       (cl-lib
-			(0 5))
-		       (emacs-visual-notifications
-			(20170908 2035)))
-		      "An Emacs package to notify you on specified daily occurring events" single])
  (zone-nyan .
 	    [(0 2 2)
 	     ((esxml
@@ -3584,6 +3575,15 @@
  (emacs-droid .
 	      [(0 0 0)
 	       nil "Android application development tools for Emacs" single])
+ (emacs-daily-events .
+		     [(20170911 2235)
+		      ((emacs
+			(24))
+		       (cl-lib
+			(0 5))
+		       (emacs-visual-notifications
+			(20170908 2035)))
+		      "An Emacs package to notify you on specified daily occurring events" single])
  (emacs-cl .
 	   [(0 5)
 	    nil "Emacs Common Lisp" tar])
