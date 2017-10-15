@@ -16,7 +16,11 @@
   (define-key irony-mode-map [remap complete-symbol] 'irony-completion-at-point-async))
 (add-hook 'irony-mode-hook 'my-irony-mode-hook)
 ;; (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
-(setq irony-additional-clang-options (quote ("-std=c++11")))
+(setq irony-additional-clang-options (quote (
+                                             "-std=c++11"
+                                             )))
+(require 'irony-completion)
+(setq irony-completion-availability-filter '(available deprecated not-accessible))
 
 (require 'flycheck)
 (eval-after-load 'flycheck

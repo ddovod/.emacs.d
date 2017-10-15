@@ -66,13 +66,13 @@
 (add-hook 'find-file-not-found-hooks
           '(lambda ()
              (let ((file-name (buffer-file-name (current-buffer))))
-               (when (string= ".h" (substring file-name -2))
+               (when (or (string= ".hpp" (substring file-name -4)) (string= ".h" (substring file-name -2)))
                  (let ((include-guard (get-include-guard)))
                    (insert "#ifndef " include-guard)
                    (newline)
                    (insert "#define " include-guard)
                    (newline 4)
-                   (insert "#endif")
+                   (insert "#endif //" include-guard)
                    (newline)
                    (previous-line 3)
                    (set-buffer-modified-p nil))))))
@@ -212,6 +212,13 @@ For more information, see the function `buffer-menu'."
   (display-buffer (list-buffers-noselect files-only (buffer-list))))
 
 (define-key ctl-x-map "\C-b" 'list-all-buffers)
+
+(defadvice find-file (before make-directory-maybe (filename &optional wildcards) activate)
+  "Create parent directory if not exists while visiting file."
+  (unless (file-exists-p filename)
+    (let ((dir (file-name-directory filename)))
+      (unless (file-exists-p dir)
+        (make-directory dir)))))
 
 (provide 'other_stuff_config)
 ;;; other_stuff_config.el ends here

@@ -5,6 +5,8 @@
 ;; setup for c/c++ development
 (require 'cc-mode)
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.hpp\\'" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.inl\\'" . c++-mode))
 (setq c-default-style "bsd"
       indent-tabs-mode nil
       c-basic-offset 4)
@@ -13,7 +15,7 @@
 (setq c-basic-offset 4)
 (add-hook 'java-mode-hook
           '(lambda ()
-             (setq c-basic-offset 2)
+             (setq c-basic-offset 4)
              )
           )
 

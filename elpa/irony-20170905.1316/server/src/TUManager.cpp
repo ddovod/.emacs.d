@@ -97,8 +97,8 @@ TUManager::parse(const std::string &filename,
     // > Usually clang finds this directory relative to the executable with
     // > CompilerInvocation::GetResourcesPath(Argv0, MainAddr), but using just
     // > the libraries, it can't automatically find it.
-    argv.push_back("-isystem");
-    argv.push_back(CLANG_BUILTIN_HEADERS_DIR);
+    // argv.push_back("-isystem");
+    // argv.push_back(CLANG_BUILTIN_HEADERS_DIR);
 #endif
 
     for (auto &flag : flags) {

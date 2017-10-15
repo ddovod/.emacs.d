@@ -17,6 +17,7 @@
 (load "~/.emacs.d/user_elisp/theme_config.el")
 (load "~/.emacs.d/user_elisp/parens_config.el")
 (load "~/.emacs.d/user_elisp/font_config.el")
+(load "~/.emacs.d/user_elisp/rainbow_config.el")
 (load "~/.emacs.d/user_elisp/company_config.el")
 (load "~/.emacs.d/user_elisp/windmove_config.el")
 (load "~/.emacs.d/user_elisp/backup_config.el")
@@ -80,10 +81,16 @@
  '(anzu-search-threshold 1000)
  '(package-selected-packages
    (quote
-    (counsel company swiper ivy yascroll yaml-mode visual-regexp tuareg super-save sublimity string-inflection stickyfunc-enhance speed-type spaceline solarized-theme smooth-scrolling smooth-scroll sml-modeline smex smartparens smart-mode-line shackle robe realgud readline-complete rainbow-mode rainbow-identifiers projectile php-mode perspective page-break-lines org-bullets omnisharp nyan-mode nurumacs nlinum multiple-cursors moe-theme magit-gitflow latex-preview-pane keyfreq json-mode imenu-anywhere iedit ido-vertical-mode ido-ubiquitous ido-hacks htmlize highlight-thing highlight-symbol glsl-mode flycheck-rtags flycheck-protobuf flycheck-ocaml flycheck-irony flx-ido drag-stuff dired+ desktop csv-mode connection company-rtags company-lua company-irony-c-headers company-flx company-auctex column-marker color-identifiers-mode bury-successful-compilation backup-each-save auto-highlight-symbol ample-theme ace-jump-mode)))
+    (elpy counsel company swiper ivy yascroll yaml-mode visual-regexp tuareg super-save sublimity string-inflection stickyfunc-enhance speed-type spaceline solarized-theme smooth-scrolling smooth-scroll sml-modeline smex smartparens smart-mode-line shackle robe realgud readline-complete rainbow-mode rainbow-identifiers projectile php-mode perspective page-break-lines org-bullets omnisharp nyan-mode nurumacs nlinum multiple-cursors moe-theme magit-gitflow latex-preview-pane keyfreq json-mode imenu-anywhere iedit ido-vertical-mode ido-ubiquitous ido-hacks htmlize highlight-thing highlight-symbol glsl-mode flycheck-rtags flycheck-protobuf flycheck-ocaml flycheck-irony flx-ido drag-stuff dired+ desktop csv-mode connection company-rtags company-lua company-irony-c-headers company-flx company-auctex column-marker color-identifiers-mode bury-successful-compilation backup-each-save auto-highlight-symbol ample-theme ace-jump-mode)))
  '(safe-local-variable-values
    (quote
-    ((projectile-run-cmd function multi-compile-run)
+    ((projectile-project-run-cmd . "cmake -Hbuild -B build && cmake --build build --target vxl_tool --config Debug -- -j4 && ./build/Debug/vxl_tool/vxl_tool")
+     (projectile-project-compilation-cmd . "cmake -Hbuild -B build && cmake --build build --target vxl_tool --config Debug -- -j4")
+     (projectile-project-run-cmd . "cmake -Hbuild -Bbuild && cmake --build build --target vxl_tool --config Debug -- -j4 && ./build/Debug/vxl_tool/vxl_tool")
+     (projectile-project-compilation-cmd . "cmake -Hbuild -Bbuild && cmake --build build --target vxl_tool --config Debug -- -j4")
+     (projectile-project-run-cmd . "cmake --build build --target vxl_tool --config Debug -- -j4 && ./build/Debug/vxl_tool/vxl_tool")
+     (projectile-project-compilation-cmd . "cmake --build build --target vxl_tool --config Debug -- -j4")
+     (projectile-run-cmd function multi-compile-run)
      (projectile-compilation-cmd function multi-compile-run)
      (projectile-project-run-cmd function multi-compile-run)
      (projectile-project-compilation-cmd function multi-compile-run)

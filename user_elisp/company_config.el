@@ -49,7 +49,9 @@
 (setq company-minimum-prefix-length 1)
 (setq company-idle-delay 0)
 
-;; (with-eval-after-load 'company
+(setq company-tooltip-maximum-width 80)
+
+;; (WITH-eval-after-load 'company
 ;;   (company-flx-mode +1))
 ;; (setq company-flx-limit 100)
 

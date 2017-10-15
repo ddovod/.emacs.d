@@ -10,8 +10,8 @@
 (setq-default flycheck-disabled-checkers '(c/c++-gcc))
 (setq-default flycheck-disabled-checkers '(c/c++-cppcheck))
 
-(with-eval-after-load 'flycheck
-  (flycheck-pos-tip-mode))
+;; (with-eval-after-load 'flycheck
+  ;; (flycheck-pos-tip-mode))
 
 ;; This stuff prevents selection of some text if popup is shown, but looks better than pos-tip
 ;; (add-hook 'flycheck-mode-hook 'flycheck-popup-tip-mode)

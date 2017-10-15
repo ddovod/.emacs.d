@@ -1,0 +1,1 @@
+/usr/bin/c++    -fno-exceptions -O3 -DNDEBUG   CMakeFiles/irony-server.dir/support/CommandLineParser.cpp.o CMakeFiles/irony-server.dir/support/TemporaryFile.cpp.o CMakeFiles/irony-server.dir/Command.cpp.o CMakeFiles/irony-server.dir/Irony.cpp.o CMakeFiles/irony-server.dir/TUManager.cpp.o CMakeFiles/irony-server.dir/main.cpp.o  -o ../bin/irony-server -rdynamic -lclang 
