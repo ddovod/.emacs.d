@@ -4,9 +4,15 @@
 
 
 (require 'irony)
-(add-hook 'c++-mode-hook 'irony-mode)
-(add-hook 'c-mode-hook 'irony-mode)
-(add-hook 'objc-mode-hook 'irony-mode)
+
+(defun my-irony-mode-on ()
+  "Avoid enabling 'irony-mode' in modes that inherits 'c-mode', e.g: 'glsl-mode'."
+  (when (member major-mode irony-supported-major-modes)
+    (irony-mode 1)))
+
+(add-hook 'c++-mode-hook 'my-irony-mode-on)
+(add-hook 'c-mode-hook 'my-irony-mode-on)
+(add-hook 'objc-mode-hook 'my-irony-mode-on)
 
 ;; replace the `completion-at-point' and `complete-symbol' bindings in
 ;; irony-mode's buffers by irony-mode's function
