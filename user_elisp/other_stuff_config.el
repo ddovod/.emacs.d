@@ -8,7 +8,7 @@
 (setq file-name-coding-system 'utf-8)
 (setq scroll-step 1)
 (global-hl-line-mode 1)
-(global-nlinum-mode 1)
+(global-display-line-numbers-mode)
 (fset 'yes-or-no-p 'y-or-n-p)
 (setq kill-buffer-query-functions
       (remq 'process-kill-buffer-query-function
@@ -22,6 +22,7 @@
 (setq delete-by-moving-to-trash t)
 (delete-selection-mode t)
 (global-set-key (kbd "C-z") nil)
+(global-set-key (kbd "C-t") nil)
 (global-subword-mode 1)
 (setq-default cursor-type 'bar)
 
