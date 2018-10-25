@@ -16,5 +16,8 @@
 ;; This stuff prevents selection of some text if popup is shown, but looks better than pos-tip
 ;; (add-hook 'flycheck-mode-hook 'flycheck-popup-tip-mode)
 
+(require 'lsp-ui)
+(add-hook 'lsp-mode-hook 'lsp-ui-mode)
+
 (provide 'flycheck_config)
 ;;; flycheck_config.el ends here

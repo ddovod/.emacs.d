@@ -4,12 +4,14 @@
 
 ;; projectile
 (require 'projectile)
-(projectile-mode)
-(projectile-global-mode)
+(projectile-mode 1)
 (setq projectile-indexing-method 'alien)
 (setq projectile-enable-caching nil)
+;; (setq projectile-completion-system 'ivy)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 (define-key projectile-mode-map (kbd "C-c p r") 'projectile-run-project)
-
+(setq projectile-project-compilation-cmd "")
+(setq projectile-project-run-cmd "")
 
 (provide 'projectile_config)
 ;;; projectile_config.el ends here

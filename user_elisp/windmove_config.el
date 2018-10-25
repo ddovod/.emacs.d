@@ -1,6 +1,7 @@
+;;; package --- Summary
+;;; Commentary:
+;;; Code:
 
-
-;; WindMove
 (global-set-key (kbd "C-c <left>") 'windmove-left)
 (global-set-key (kbd "C-c <right>") 'windmove-right)
 (global-set-key (kbd "C-c <up>") 'windmove-up)
@@ -12,3 +13,5 @@
              (define-key html-mode-map (kbd "C-c <right>") nil)
              (define-key html-mode-map (kbd "C-c <up>") nil)
              (define-key html-mode-map (kbd "C-c <down>") nil)))
+
+;;; windmove_config.el ends here

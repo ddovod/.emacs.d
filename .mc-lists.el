@@ -14,13 +14,18 @@
         c-electric-semi&comma
         c-electric-slash
         c-electric-star
+        c-indent-line-or-region
         c-macro-expand
+        c-up-conditional
         comment-line
         dired-mark
         dired-unmark
         dired-unmark-all-marks
         diredp-next-line
         diredp-previous-line
+        downcase-region
+        drag-stuff-down
+        drag-stuff-left
         drag-stuff-right
         drag-stuff-up
         electric-newline-and-maybe-indent
@@ -46,6 +51,7 @@
         subword-right
         upcase-region
         yaml-electric-backspace
+        yaml-electric-bar-and-angle
         yaml-electric-dash-and-dot
         yas-expand
         ))
@@ -54,6 +60,7 @@
       '(
         ein:worksheet-execute-cell-and-goto-next
         handle-switch-frame
+        ido-switch-buffer
         imenu
         persp-switch
         projectile-run-project

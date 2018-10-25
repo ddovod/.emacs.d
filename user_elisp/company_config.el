@@ -5,10 +5,11 @@
 ;; company configuration
 (require 'company)
 (add-hook 'after-init-hook 'global-company-mode)
-(eval-after-load 'company
-  '(push 'company-robe company-backends))
+
 (eval-after-load 'company
   '(delete 'company-semantic company-backends))
+(eval-after-load 'company
+  '(delete 'company-clang company-backends))
 
 (eval-after-load 'company
   '(push 'company-readline company-backends))
@@ -18,22 +19,10 @@
 (eval-after-load 'company
   '(push 'company-restclient company-backends))
 
-
-;; (eval-after-load 'company
-;;   '(push 'company-capf company-backends))
-
 (require 'company-dabbrev)
 (setq company-dabbrev-downcase nil)
 (setq company-dabbrev-ignore-case nil)
 (setq company-dabbrev-minimum-length 1)
-
-(require 'company-auctex)
-(company-auctex-init)
-
-(setq TeX-auto-save t)
-(setq TeX-parse-self t)
-(setq-default TeX-master nil)
-
 
 (eval-after-load 'company
   '(push 'company-pseudo-tooltip-frontend company-frontends))
@@ -50,9 +39,5 @@
 (setq company-idle-delay 0)
 
 (setq company-tooltip-maximum-width 80)
-
-;; (WITH-eval-after-load 'company
-;;   (company-flx-mode +1))
-;; (setq company-flx-limit 100)
 
 ;;; company_config.el ends here

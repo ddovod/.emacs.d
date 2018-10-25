@@ -5,7 +5,7 @@
 ;; ido mode and related stuff
 (require 'ido)
 (ido-mode t)
-(setq ido-enable-flex-matching t) 
+(setq ido-enable-flex-matching t)
 (setq ido-create-new-buffer 'always)
 (add-hook 'ido-setup-hook 
           (lambda () 

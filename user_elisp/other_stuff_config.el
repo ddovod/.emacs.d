@@ -68,15 +68,10 @@
           '(lambda ()
              (let ((file-name (buffer-file-name (current-buffer))))
                (when (or (string= ".hpp" (substring file-name -4)) (string= ".h" (substring file-name -2)))
-                 (let ((include-guard (get-include-guard)))
-                   (insert "#ifndef " include-guard)
-                   (newline)
-                   (insert "#define " include-guard)
-                   (newline 4)
-                   (insert "#endif //" include-guard)
-                   (newline)
-                   (previous-line 3)
-                   (set-buffer-modified-p nil))))))
+                 (newline)
+                 (insert "#pragma once")
+                 (newline 2)
+                 (set-buffer-modified-p nil)))))
 
 ;;
 (persp-mode)
@@ -111,7 +106,6 @@
 (which-function-mode 1)
 (set-fringe-style '(nil . 0))
 
-(require 'dired+)
 (require 'compile)
 (setq compilation-scroll-output t)
 (setq compilation-ask-about-save nil)
@@ -220,6 +214,11 @@ For more information, see the function `buffer-menu'."
     (let ((dir (file-name-directory filename)))
       (unless (file-exists-p dir)
         (make-directory dir)))))
+
+(electric-pair-mode t)
+(show-paren-mode t)
+
+(global-set-key (kbd "C-.") 'imenu)
 
 (provide 'other_stuff_config)
 ;;; other_stuff_config.el ends here

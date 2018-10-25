@@ -15,15 +15,11 @@
 
 (load "~/.emacs.d/user_elisp/packages_config.el")
 (load "~/.emacs.d/user_elisp/theme_config.el")
-(load "~/.emacs.d/user_elisp/parens_config.el")
 (load "~/.emacs.d/user_elisp/font_config.el")
-(load "~/.emacs.d/user_elisp/rainbow_config.el")
 (load "~/.emacs.d/user_elisp/company_config.el")
 (load "~/.emacs.d/user_elisp/windmove_config.el")
 (load "~/.emacs.d/user_elisp/backup_config.el")
 (load "~/.emacs.d/user_elisp/ido_config.el")
-(load "~/.emacs.d/user_elisp/ace_config.el")
-(load "~/.emacs.d/user_elisp/imenu_config.el")
 (load "~/.emacs.d/user_elisp/multiple_cursors_config.el")
 (load "~/.emacs.d/user_elisp/yaml_config.el")
 (load "~/.emacs.d/user_elisp/projectile_config.el")
@@ -31,42 +27,15 @@
 (load "~/.emacs.d/user_elisp/erlang_config.el")
 (load "~/.emacs.d/user_elisp/flycheck_config.el")
 (load "~/.emacs.d/user_elisp/yasnippet_config.el")
-(load "~/.emacs.d/user_elisp/irony_config.el")
 (load "~/.emacs.d/user_elisp/git_config.el")
 (load "~/.emacs.d/user_elisp/expand_region_config.el")
 (load "~/.emacs.d/user_elisp/disable_flymake_config.el")
 (load "~/.emacs.d/user_elisp/clean_mode_line_config.el")
 (load "~/.emacs.d/user_elisp/org_config.el")
 (load "~/.emacs.d/user_elisp/python_config.el")
-
 (load "~/.emacs.d/user_elisp/other_stuff_config.el")
 
-(require 'cmake-mode)
-
-(require 'cpputils-cmake)
-(add-hook 'c-mode-common-hook
-          (lambda ()
-            (if (derived-mode-p 'c-mode 'c++-mode)
-                (cppcm-reload-all)
-              )))
-;;
-(setq cppcm-write-flymake-makefile nil)
-;; optional, avoid typing full path when starting gdb
-(global-set-key (kbd "C-c C-g")
-                '(lambda ()(interactive) (gud-gdb (concat "gdb --fullname " (cppcm-get-exe-path-current-buffer)))))
-(add-hook 'c-mode-common-hook
-          (lambda ()
-            (if (derived-mode-p 'c-mode 'c++-mode)
-                (if  (not (or (string-match "^/usr/local/include/.*" buffer-file-name)
-                              (string-match "^/usr/src/linux/include/.*" buffer-file-name)))
-                    (cppcm-reload-all))
-              )))
-
-
-(setenv "ERL_LIBS"        "$HOME/_code/erlang/hexlet/deps/sync/")
-(setenv "LD_LIBRARY_PATH" "/usr/local/lib")
 (exec-path-from-shell-initialize)
-
 
 (provide 'init)
 ;;; init.el ends here
@@ -81,10 +50,20 @@
  '(anzu-search-threshold 1000)
  '(package-selected-packages
    (quote
-    (irony elpy counsel company swiper ivy yascroll yaml-mode visual-regexp tuareg super-save sublimity string-inflection stickyfunc-enhance speed-type spaceline solarized-theme smooth-scrolling smooth-scroll sml-modeline smex smartparens smart-mode-line shackle robe realgud readline-complete rainbow-mode rainbow-identifiers projectile php-mode perspective page-break-lines org-bullets omnisharp nyan-mode nurumacs nlinum multiple-cursors moe-theme magit-gitflow latex-preview-pane keyfreq json-mode imenu-anywhere iedit ido-vertical-mode ido-ubiquitous ido-hacks htmlize highlight-thing highlight-symbol glsl-mode flycheck-rtags flycheck-protobuf flycheck-ocaml flycheck-irony flx-ido drag-stuff dired+ desktop csv-mode connection company-rtags company-lua company-irony-c-headers company-flx company-auctex column-marker color-identifiers-mode bury-successful-compilation backup-each-save auto-highlight-symbol ample-theme ace-jump-mode)))
+    (cquery lsp-ui company-lsp ycmd use-package groovy-mode counsel yascroll yaml-mode visual-regexp tuareg super-save string-inflection stickyfunc-enhance speed-type spaceline solarized-theme sml-modeline smex smartparens smart-mode-line shackle robe realgud readline-complete php-mode page-break-lines org-bullets omnisharp nyan-mode multiple-cursors magit-gitflow latex-preview-pane keyfreq json-mode imenu-anywhere iedit ido-vertical-mode ido-ubiquitous ido-hacks htmlize highlight-thing highlight-symbol glsl-mode flycheck-protobuf flycheck-ocaml flx-ido drag-stuff csv-mode connection company-auctex bury-successful-compilation backup-each-save auto-highlight-symbol)))
  '(safe-local-variable-values
    (quote
-    ((projectile-project-run-cmd . "cmake -Hbuild -B build && cmake --build build --target vxl_tool --config Debug -- -j4 && ./build/Debug/vxl_tool/vxl_tool")
+    ((projectile-project-run-cmd . "../build/jet.py run --Platform=Linux --Configuration=Debug --Editor=Enabled")
+     (projectile-project-compilation-cmd . "../build/jet.py build --Platform=Linux --Configuration=Debug --Editor=Enabled")
+     (projectile-project-run-cmd . "../build/jet.py run --Platform=Linux --Configuration=Debug")
+     (projectile-project-compilation-cmd . "../build/jet.py build --Platform=Linux --Configuration=Debug")
+     (projectile-project-run-cmd . "./jet_build/jet.py run --Platform=Linux --Configuration=Debug")
+     (projectile-project-compilation-cmd . "./jet_build/jet.py build --Platform=Linux --Configuration=Debug")
+     (projectile-project-run-cmd . "./jet_build/jet.py --Platform=Linux --Configuration=Debug && mkdir -p jet_project/cmake/build && pushd jet_project/cmake/build && cmake .. && make && ./jet_pacman && popd")
+     (projectile-project-compilation-cmd . "./jet_build/jet.py --Platform=Linux --Configuration=Debug && mkdir -p jet_project/cmake/build && pushd jet_project/cmake/build && cmake .. && make && ./jet_pacman && popd")
+     (projectile-project-compilation-cmd . "./jet_build/jet.py --Platform=Linux --Configuration=Debug && mkdir -p jet_project/cmake/build && pushd jet_project/cmake/build && cmake .. && make && popd")
+     (projectile-project-compilation-cmd . "./jet_build/jet.py --Platform=Linux --Configuration=Debug && mkdir jet_project/cmake/build && pushd jet_project/cmake/build && cmake .. && make && popd")
+     (projectile-project-run-cmd . "cmake -Hbuild -B build && cmake --build build --target vxl_tool --config Debug -- -j4 && ./build/Debug/vxl_tool/vxl_tool")
      (projectile-project-compilation-cmd . "cmake -Hbuild -B build && cmake --build build --target vxl_tool --config Debug -- -j4")
      (projectile-project-run-cmd . "cmake -Hbuild -Bbuild && cmake --build build --target vxl_tool --config Debug -- -j4 && ./build/Debug/vxl_tool/vxl_tool")
      (projectile-project-compilation-cmd . "cmake -Hbuild -Bbuild && cmake --build build --target vxl_tool --config Debug -- -j4")
