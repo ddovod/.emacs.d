@@ -31,7 +31,6 @@
 (load "~/.emacs.d/user_elisp/expand_region_config.el")
 (load "~/.emacs.d/user_elisp/disable_flymake_config.el")
 (load "~/.emacs.d/user_elisp/clean_mode_line_config.el")
-(load "~/.emacs.d/user_elisp/org_config.el")
 (load "~/.emacs.d/user_elisp/python_config.el")
 (load "~/.emacs.d/user_elisp/other_stuff_config.el")
 
@@ -50,7 +49,7 @@
  '(anzu-search-threshold 1000)
  '(package-selected-packages
    (quote
-    (projectile cquery ycmd yascroll visual-regexp tuareg stickyfunc-enhance speed-type spaceline solarized-theme smart-mode-line robe realgud php-mode org-bullets omnisharp nyan-mode latex-preview-pane ido-ubiquitous highlight-thing highlight-symbol flycheck-protobuf flycheck-ocaml connection company-auctex)))
+    (cquery yascroll visual-regexp stickyfunc-enhance speed-type spaceline smart-mode-line ido-ubiquitous highlight-thing highlight-symbol flycheck-protobuf connection)))
  '(safe-local-variable-values
    (quote
     ((projectile-project-run-cmd . "../build/jet.py run --Platform=Linux --Configuration=Debug --Editor=Enabled")

@@ -25,14 +25,11 @@
 
 ;; cquery
 (require 'cquery)
-;; (setq cquery-executable "~/Downloads/cquery/cquery/build/release/bin/cquery")
-(setq cquery-executable "~/_private/_projects/cquery/cquery/build/cquery")
-;; "caseInsensitivePrefixMatcher" "caseSensitivePrefixMatcher" "cqueryMatcher" "ftsMatcher"
+(setq cquery-executable "cquery")
 (setq cquery-extra-init-params '(:index (:comments 2)
-                                        :cacheFormat "msgpack"
-                                        :completion (:matcherType "cqueryMatcher")))
+                                        :cacheFormat "msgpack"))
 (setq cquery-cache-dir "~/.cquery_cached_index")
-(setq cquery-extra-args '("--log-file=/tmp/cq.log"  "--record=/tmp/cq_logs"))
+(setq cquery-extra-args '("--log-file=/tmp/cq.log"))
 
 (require 'company-lsp)
 (eval-after-load 'company
