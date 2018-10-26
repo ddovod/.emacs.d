@@ -50,7 +50,7 @@
  '(anzu-search-threshold 1000)
  '(package-selected-packages
    (quote
-    (cquery lsp-ui company-lsp ycmd use-package groovy-mode counsel yascroll yaml-mode visual-regexp tuareg super-save string-inflection stickyfunc-enhance speed-type spaceline solarized-theme sml-modeline smex smartparens smart-mode-line shackle robe realgud readline-complete php-mode page-break-lines org-bullets omnisharp nyan-mode multiple-cursors magit-gitflow latex-preview-pane keyfreq json-mode imenu-anywhere iedit ido-vertical-mode ido-ubiquitous ido-hacks htmlize highlight-thing highlight-symbol glsl-mode flycheck-protobuf flycheck-ocaml flx-ido drag-stuff csv-mode connection company-auctex bury-successful-compilation backup-each-save auto-highlight-symbol)))
+    (projectile cquery ycmd yascroll visual-regexp tuareg stickyfunc-enhance speed-type spaceline solarized-theme smart-mode-line robe realgud php-mode org-bullets omnisharp nyan-mode latex-preview-pane ido-ubiquitous highlight-thing highlight-symbol flycheck-protobuf flycheck-ocaml connection company-auctex)))
  '(safe-local-variable-values
    (quote
     ((projectile-project-run-cmd . "../build/jet.py run --Platform=Linux --Configuration=Debug --Editor=Enabled")

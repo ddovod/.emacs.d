@@ -93,7 +93,7 @@
 (global-set-key (kbd "C-x C-;") 'comment-line)
 
 ;; Workaround for emacs25
-(load "../elpa/drag-stuff-20161107.2349/drag-stuff.el")
+;; (load "../elpa/drag-stuff-20161107.2349/drag-stuff.el")
 (require 'drag-stuff)
 (drag-stuff-global-mode t)
 (drag-stuff-define-keys)
@@ -155,6 +155,11 @@
 (global-set-key (kbd "C-}") 'highlight-symbol-next)
 (global-set-key (kbd "C-{") 'highlight-symbol-prev)
 (setq highlight-symbol-idle-delay 1)
+
+;;
+(require 'projectile)
+(global-set-key (kbd "C-x <left>") 'projectile-previous-project-buffer)
+(global-set-key (kbd "C-x <right>") 'projectile-next-project-buffer)
 
 ;;
 (defun camelcase_to_underscore ()
