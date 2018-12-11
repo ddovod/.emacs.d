@@ -171,11 +171,13 @@
   )
 (require 'string-inflection)
 
-(require 'shackle)
-(setq shackle-rules
-      '((compilation-mode :align below :ratio 0.1))
-      shackle-default-rule '(:select t))
-(shackle-mode 1)
+
+;; (require 'shackle)
+;; (setq shackle-rules
+;;       '((compilation-mode :align below :ratio 0.1))
+;;       shackle-default-rule '(:select t))
+;; (shackle-mode 1) ;; ???????????????????????
+;; Don't know why, but this line breaks projectile navigation between buffers
 
 (require 'ansi-color)
 (defun colorize-compilation-buffer ()
@@ -201,17 +203,6 @@
 
 (require 'lua-mode)
 (setq lua-indent-level 4)
-
-(defun list-all-buffers (&optional files-only)
-  "Display a list of names of existing buffers.
-The list is displayed in a buffer named `*Buffer List*'.
-Non-null optional arg FILES-ONLY means mention only file buffers.
-
-For more information, see the function `buffer-menu'."
-  (interactive "P")
-  (display-buffer (list-buffers-noselect files-only (buffer-list))))
-
-(define-key ctl-x-map "\C-b" 'list-all-buffers)
 
 (defadvice find-file (before make-directory-maybe (filename &optional wildcards) activate)
   "Create parent directory if not exists while visiting file."
