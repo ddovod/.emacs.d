@@ -12,8 +12,10 @@
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 (global-set-key (kbd "C-?") 'mc/insert-numbers)
 
-;;(custom-set-faces
-;; mc/cursor-face
+;; (set-face-attribute 'mc/cursor-bar-face nil :height 1)
+
+;; (custom-set-faces
+;;  'mc/cursor-bar-face
 ;;  '((t (:inverse-video t))))
 
 (provide 'multiple_cursors_config)

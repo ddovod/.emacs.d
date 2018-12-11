@@ -16,6 +16,7 @@
         c-electric-star
         c-indent-line-or-region
         c-macro-expand
+        c-toggle-electric-state
         c-up-conditional
         comment-line
         dired-mark
@@ -60,6 +61,7 @@
       '(
         ein:worksheet-execute-cell-and-goto-next
         handle-switch-frame
+        ido-find-file
         ido-switch-buffer
         imenu
         persp-switch

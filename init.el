@@ -49,7 +49,7 @@
  '(anzu-search-threshold 1000)
  '(package-selected-packages
    (quote
-    (cquery yascroll visual-regexp stickyfunc-enhance speed-type spaceline smart-mode-line ido-ubiquitous highlight-thing highlight-symbol flycheck-protobuf connection)))
+    (groovy-mode cquery yascroll visual-regexp stickyfunc-enhance speed-type spaceline smart-mode-line ido-ubiquitous highlight-thing highlight-symbol flycheck-protobuf connection)))
  '(safe-local-variable-values
    (quote
     ((projectile-project-run-cmd . "../build/jet.py run --Platform=Linux --Configuration=Debug --Editor=Enabled")
