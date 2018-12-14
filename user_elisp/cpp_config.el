@@ -20,9 +20,6 @@
              )
           )
 
-
-
-
 ;; cquery
 (require 'cquery)
 (setq cquery-executable "cquery")
@@ -54,25 +51,6 @@
 (use-package cquery
              :commands lsp-cquery-enable
              :init (add-hook 'c-mode-common-hook #'cquery//enable))
-
-(require 'lsp-ui)
-(add-hook 'lsp-mode-hook 'lsp-ui-mode)
-(setq lsp-highlight-symbol-at-point nil)
-
-(require 'lsp-ui-imenu)
-(add-hook 'lsp-after-open-hook 'lsp-ui-imenu-enable)
-
-(require 'lsp-ui-sideline)
-(setq lsp-ui-sideline-show-code-actions nil)
-(setq lsp-ui-sideline-show-hover nil)
-(setq lsp-ui-sideline-show-symbol nil)
-
-(require 'lsp-ui-peek)
-(setq lsp-ui-peek-always-show t)
-
-(require 'lsp-ui-doc)
-(setq lsp-ui-doc-header t)
-(setq lsp-ui-doc-use-childframe nil)
 
 (provide 'cpp_config)
 ;;; cpp_config.el ends here

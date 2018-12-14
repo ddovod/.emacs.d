@@ -32,6 +32,7 @@
 (load "~/.emacs.d/user_elisp/disable_flymake_config.el")
 (load "~/.emacs.d/user_elisp/clean_mode_line_config.el")
 (load "~/.emacs.d/user_elisp/python_config.el")
+(load "~/.emacs.d/user_elisp/lsp_config.el")
 (load "~/.emacs.d/user_elisp/other_stuff_config.el")
 
 (exec-path-from-shell-initialize)
