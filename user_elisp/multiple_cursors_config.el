@@ -12,6 +12,9 @@
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 (global-set-key (kbd "C-?") 'mc/insert-numbers)
 
+(defun mc/cursor-is-bar
+  nil)
+
 ;; (set-face-attribute 'mc/cursor-bar-face nil :height 1)
 
 ;; (custom-set-faces

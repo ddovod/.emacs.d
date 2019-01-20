@@ -40,6 +40,7 @@
         eval-last-sexp
         eval-print-last-sexp
         forward-sexp
+        indent-for-tab-command
         kill-region
         org-beginning-of-line
         org-ctrl-c-minus
