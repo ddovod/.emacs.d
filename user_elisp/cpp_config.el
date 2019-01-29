@@ -20,37 +20,19 @@
              )
           )
 
+;; ccls
+;; (require 'ccls)
+;; (add-hook 'c-mode-common-hook #'lsp)
+
 ;; cquery
 (require 'cquery)
 (setq cquery-executable "cquery")
 (setq cquery-extra-init-params '(:index (:comments 2)
                                         :cacheFormat "msgpack"))
-(setq cquery-cache-dir "~/.cquery_cached_index")
-(setq cquery-extra-args '("--log-file=/tmp/cq.log"))
+(setq cquery-cache-dir "~/.cquery_cache")
+(setq cquery-extra-args '("--log-file=/tmp/cquery.log"))
 
-(require 'company-lsp)
-(eval-after-load 'company
-  '(push 'company-lsp company-backends))
-(setq company-lsp-cache-candidates nil)
-(require 'company)
-(setq company-transformers '(company-sort-by-backend-importance))
-
-(require 'projectile)
-(with-eval-after-load 'projectile
-  (setq projectile-project-root-files-top-down-recurring
-        (append '("compile_commands.json"
-                  ".cquery")
-                projectile-project-root-files-top-down-recurring)))
-
-(defun cquery//enable ()
-  "Docs."
-  (condition-case nil
-      (lsp-cquery-enable)
-    (user-error nil)))
-
-(use-package cquery
-             :commands lsp-cquery-enable
-             :init (add-hook 'c-mode-common-hook #'cquery//enable))
+(add-hook 'c-mode-common-hook #'lsp)
 
 (provide 'cpp_config)
 ;;; cpp_config.el ends here

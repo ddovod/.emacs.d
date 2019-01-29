@@ -50,104 +50,52 @@
  '(anzu-search-threshold 1000)
  '(package-selected-packages
    (quote
-    (groovy-mode cquery yascroll visual-regexp stickyfunc-enhance speed-type spaceline smart-mode-line ido-ubiquitous highlight-thing highlight-symbol flycheck-protobuf connection)))
+    (cquery dash ccls lsp-ui company-lsp yasnippet flycheck company groovy-mode yascroll visual-regexp stickyfunc-enhance speed-type spaceline smart-mode-line ido-ubiquitous highlight-thing highlight-symbol flycheck-protobuf connection)))
  '(safe-local-variable-values
    (quote
     ((projectile-project-run-cmd . "../build/jet.py run --Platform=Linux --Configuration=Debug --Editor=Enabled")
      (projectile-project-compilation-cmd . "../build/jet.py build --Platform=Linux --Configuration=Debug --Editor=Enabled")
-     (projectile-project-run-cmd . "../build/jet.py run --Platform=Linux --Configuration=Debug")
-     (projectile-project-compilation-cmd . "../build/jet.py build --Platform=Linux --Configuration=Debug")
-     (projectile-project-run-cmd . "./jet_build/jet.py run --Platform=Linux --Configuration=Debug")
-     (projectile-project-compilation-cmd . "./jet_build/jet.py build --Platform=Linux --Configuration=Debug")
-     (projectile-project-run-cmd . "./jet_build/jet.py --Platform=Linux --Configuration=Debug && mkdir -p jet_project/cmake/build && pushd jet_project/cmake/build && cmake .. && make && ./jet_pacman && popd")
-     (projectile-project-compilation-cmd . "./jet_build/jet.py --Platform=Linux --Configuration=Debug && mkdir -p jet_project/cmake/build && pushd jet_project/cmake/build && cmake .. && make && ./jet_pacman && popd")
-     (projectile-project-compilation-cmd . "./jet_build/jet.py --Platform=Linux --Configuration=Debug && mkdir -p jet_project/cmake/build && pushd jet_project/cmake/build && cmake .. && make && popd")
-     (projectile-project-compilation-cmd . "./jet_build/jet.py --Platform=Linux --Configuration=Debug && mkdir jet_project/cmake/build && pushd jet_project/cmake/build && cmake .. && make && popd")
-     (projectile-project-run-cmd . "cmake -Hbuild -B build && cmake --build build --target vxl_tool --config Debug -- -j4 && ./build/Debug/vxl_tool/vxl_tool")
-     (projectile-project-compilation-cmd . "cmake -Hbuild -B build && cmake --build build --target vxl_tool --config Debug -- -j4")
-     (projectile-project-run-cmd . "cmake -Hbuild -Bbuild && cmake --build build --target vxl_tool --config Debug -- -j4 && ./build/Debug/vxl_tool/vxl_tool")
-     (projectile-project-compilation-cmd . "cmake -Hbuild -Bbuild && cmake --build build --target vxl_tool --config Debug -- -j4")
-     (projectile-project-run-cmd . "cmake --build build --target vxl_tool --config Debug -- -j4 && ./build/Debug/vxl_tool/vxl_tool")
-     (projectile-project-compilation-cmd . "cmake --build build --target vxl_tool --config Debug -- -j4")
-     (projectile-run-cmd function multi-compile-run)
-     (projectile-compilation-cmd function multi-compile-run)
-     (projectile-project-run-cmd function multi-compile-run)
-     (projectile-project-compilation-cmd function multi-compile-run)
-     (projectile-project-run-cmd . multi-compile-run)
-     (projectile-project-compilation-cmd . multi-compile-run)
-     (projectile-project-run-cmd quote multi-compile-run)
-     (projectile-project-compilation-cmd quote multi-compile-run)
-     (multi-compile-alist
-      ("\\.*"
-       ("cocos-compile-linux" . "cocos compile -p Linux")
-       ("cocos-compile-android" . "compile-android"))
-      ("\\.*"
-       ("cocos-run-linux" . "cocos run -p Linux")
-       ("cocos-run-android" . "run-android")))
-     (multi-compile-alist
-      ("\\.*"
-       ("cocos-compile-linux" . "compile-linux")
-       ("cocos-compile-android" . "compile-android")))
-     (multi-compile-alist quote
-                          (("\\.*"
-                            ("cocos-compile-linux" . "compile-linux")
-                            ("cocos-compile-android" . "compile-android"))))
-     (make-variable-buffer-local
-      (quote multi-compile-alist))
-     (projectile-project-run-cmd . "pushd build && cmake .. && make && ./ncalc")
-     (projectile-project-compilation-cmd . "pushd build && cmake .. && make")
-     (projectile-project-run-cmd . "cocos compile -p Linux && ./build/bin/MyGame")
-     (projectile-project-run-cmd . "pushd build; make -j4; pushd project; ./thieves; popd; popd")
-     (projectile-project-run-cmd . "pushd build; make -j4; ./project/thieves; popd")
-     (projectile-project-compilation-cmd . "pushd build; make -j4; popd")
-     (projectile-project-run-cmd . "echo \"Wat?\"")
-     (projectile-project-compilation-cmd . "pushd build; make; popd")
-     (projectile-project-test-cmd function
-                                  (gud-gdb "build/bot"))
-     (projectile-project-test-cmd quote
-                                  (gud-gdb "build/bot"))
-     (projectile-project-run-cmd . "./compile.sh; ./run_simulation.sh")
-     (projectile-project-run-cmd . "compile.sh; ./run_simulation.sh")
-     (projectile-project-compilation-cmd . "./compile.sh")
-     (projectile-project-run-cmd . "./run_simulation.sh")
-     (projectile-project-run-cmd . "cd ./../local-runner; ./local-runner.sh; cd ./../bot; ./build/bot")
-     (projectile-project-run-cmd . "./../local-runner/local-runner.sh; ./build/bot")
-     (projectile-project-run-cmd . "../local-runner/local-runner.sh; ./build/bot")
-     (projectile-project-run-cmd . "./build/bot")
-     (projectile-project-compilation-cmd . "cd build; cmake ..; make")
-     (projectile-project-compilation-cmd . "cd build/; cmake ..; make")
-     (projectile-project-run-cmd . "./build/test_app")
-     (projectile-project-compilation-cmd . "cd build/; cmake ..")
-     (eval setq flycheck-erlang-library-path
-           (file-expand-wildcards "../_build/default/lib/*/ebin"))
-     (flycheck-erlang-library-path list
-                                   (file-expand-wildcards "../_build/default/lib/*/ebin"))
-     (flycheck-erlang-library-path file-expand-wildcards "../_build/default/lib/*/ebin")
-     (flycheck-erlang-library-path quote
-                                   ("../_build/default/lib/*/ebin"))
-     (flycheck-erlang-include-path quote
-                                   ("../include/"))
-     (flycheck-erlang-library-path
-      (quote
-       ("../_build/default/lib/*/ebin")))
-     (flycheck-erlang-include-path
-      (quote
-       ("../include/")))
-     (org-agenda-files list "main.org" "inbox.org")
-     (org-agenda-files list
-                       (quote "main.org")
-                       (quote "inbox.org"))
-     (org-tag-alist quote nil)
-     (org-startup-folded quote overview)
-     (org-agenda-files quote
-                       ("main.org" "inbox.org"))
-     (org-agenda-files ".")
-     (org-agenda-files list "main.org")
-     (org-agenda-files
-      (list "main.org"))
-     (projectile-project-run-cmd . "cocos run -p Linux")
-     (projectile-project-compilation-cmd . "cocos compile -p Linux")
-     (projectile-project-compilation-cmd "cocos compile -p Linux")))))
+     (eval progn
+           (defun reload-code-in-app nil
+             (interactive)
+             (progn
+               (save-some-buffers)
+               (async-shell-command "kill -SIGUSR1 $(pgrep asteroids)")))
+           (add-to-list
+            (quote display-buffer-alist)
+            (cons "\\*Async Shell Command\\*.*"
+                  (cons
+                   (function display-buffer-no-window)
+                   nil)))
+           (global-set-key
+            (kbd "C-c c r")
+            (quote reload-code-in-app)))
+     (eval progn
+           (defun reload-code-in-app nil
+             (interactive)
+             (async-shell-command "kill -SIGUSR1 $(pgrep example)"))
+           (add-to-list
+            (quote display-buffer-alist)
+            (cons "\\*Async Shell Command\\*.*"
+                  (cons
+                   (function display-buffer-no-window)
+                   nil)))
+           (global-set-key
+            (kbd "C-c c r")
+            (quote reload-code-in-app)))
+     (eval progn
+           (defun reload-code-in-app nil
+             (interactive)
+             (async-shell-command "kill -SIGUSR1 $(pgrep asteroids)"))
+           (add-to-list
+            (quote display-buffer-alist)
+            (cons "\\*Async Shell Command\\*.*"
+                  (cons
+                   (function display-buffer-no-window)
+                   nil)))
+           (global-set-key
+            (kbd "C-c c r")
+            (quote reload-code-in-app)))))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
