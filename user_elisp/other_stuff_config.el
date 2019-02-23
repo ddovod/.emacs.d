@@ -216,5 +216,12 @@
 
 (global-set-key (kbd "C-.") 'imenu)
 
+(add-to-list
+ (quote display-buffer-alist)
+ (cons "\\*Async Shell Command\\*.*"
+       (cons
+        (function display-buffer-no-window)
+        nil)))
+
 (provide 'other_stuff_config)
 ;;; other_stuff_config.el ends here
