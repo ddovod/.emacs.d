@@ -29,8 +29,18 @@
     ((eval progn
            (defun reload-code-in-app nil
              (interactive)
-             (async-shell-command "pkill -SIGUSR1 example"))
-
+             (progn
+               (save-some-buffers)
+               (async-shell-command "pkill -SIGUSR1 example")))
+           (global-set-key
+            (kbd "C-c c r")
+            (quote reload-code-in-app)))
+     (eval progn
+           (defun reload-code-in-app nil
+             (interactive)
+             (progn
+               (save-some-buffers)
+               (async-shell-command "pkill -SIGUSR1 bots")))
            (global-set-key
             (kbd "C-c c r")
             (quote reload-code-in-app)))))))
