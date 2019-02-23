@@ -17,8 +17,9 @@
 (require 'lsp-ui-sideline)
 (setq lsp-ui-sideline-show-hover nil)
 (setq lsp-ui-sideline-show-symbol nil)
-(global-set-key (kbd "C-c l f") 'lsp-ui-sideline-apply-code-actions)
-(setq lsp-ui-sideline-code-actions-prefix "> ")
+;; (global-set-key (kbd "C-c l f") 'lsp-ui-sideline-apply-code-actions)
+;; (setq lsp-ui-sideline-code-actions-prefix "> ")
+(setq lsp-ui-sideline-show-code-actions nil)
 (setq lsp-ui-sideline-delay 0.0)
 
 (require 'lsp-ui-flycheck)
