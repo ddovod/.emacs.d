@@ -26,7 +26,10 @@
 
 ;; cquery
 (require 'cquery)
-(setq cquery-executable "cquery")
+(setq cquery-executable "~/.emacs.d/lsp_servers/cpp/linux/bin/cquery")
+(if (eq system-type 'darwin)
+    (setq cquery-executable "~/.emacs.d/lsp_servers/cpp/macos/bin/cquery")
+    )
 (setq cquery-extra-init-params '(:index (:comments 2)
                                         :cacheFormat "msgpack"))
 (setq cquery-cache-dir "~/.cquery_cache")
