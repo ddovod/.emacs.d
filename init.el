@@ -12,6 +12,7 @@
 
 (provide 'init)
 ;;; init.el ends here
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -23,27 +24,8 @@
  '(anzu-search-threshold 1000)
  '(package-selected-packages
    (quote
-    (cquery dash ccls lsp-ui company-lsp yasnippet flycheck company groovy-mode yascroll visual-regexp stickyfunc-enhance speed-type spaceline smart-mode-line ido-ubiquitous highlight-thing highlight-symbol flycheck-protobuf connection)))
- '(safe-local-variable-values
-   (quote
-    ((eval progn
-           (defun reload-code-in-app nil
-             (interactive)
-             (progn
-               (save-some-buffers)
-               (async-shell-command "pkill -SIGUSR1 example")))
-           (global-set-key
-            (kbd "C-c c r")
-            (quote reload-code-in-app)))
-     (eval progn
-           (defun reload-code-in-app nil
-             (interactive)
-             (progn
-               (save-some-buffers)
-               (async-shell-command "pkill -SIGUSR1 bots")))
-           (global-set-key
-            (kbd "C-c c r")
-            (quote reload-code-in-app)))))))
+    (projectile cquery dash ccls lsp-ui company-lsp yasnippet flycheck company groovy-mode yascroll visual-regexp stickyfunc-enhance speed-type spaceline smart-mode-line ido-ubiquitous highlight-thing highlight-symbol flycheck-protobuf connection))))
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

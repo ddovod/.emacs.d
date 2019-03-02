@@ -223,5 +223,19 @@
         (function display-buffer-no-window)
         nil)))
 
+(defvar my/project-app-name "defineme")
+(put 'my/project-app-name 'safe-local-variable
+     (lambda (x) t))
+
+(defun reload-code-in-app nil
+  "Triggers code reload."
+  (interactive)
+  (progn
+    (save-some-buffers)
+    (async-shell-command (concat "pkill -SIGUSR1 " my/project-app-name))))
+(global-set-key
+ (kbd "C-c c r")
+ (quote reload-code-in-app))
+
 (provide 'other_stuff_config)
 ;;; other_stuff_config.el ends here
