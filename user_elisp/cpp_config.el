@@ -20,21 +20,11 @@
              )
           )
 
-;; ccls
-;; (require 'ccls)
-;; (add-hook 'c-mode-common-hook #'lsp)
-
-;; cquery
-(require 'cquery)
-(setq cquery-executable "~/.emacs.d/lsp_servers/cpp/linux/bin/cquery")
-(if (eq system-type 'darwin)
-    (setq cquery-executable "~/.emacs.d/lsp_servers/cpp/macos/bin/cquery")
-    )
-(setq cquery-extra-init-params '(:index (:comments 2)
-                                        :cacheFormat "msgpack"))
-(setq cquery-cache-dir "~/.cquery_cache")
-(setq cquery-extra-args '("--log-file=/tmp/cquery.log"))
-
+;; lsp
+(require 'lsp)
+(require 'lsp-clients)
+(require 'projectile)
+(setq lsp-clients-clangd-args `("-compile-commands-dir=" ,@projectile-project-root))
 (add-hook 'c-mode-common-hook #'lsp)
 
 (provide 'cpp_config)
