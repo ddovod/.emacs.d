@@ -7,3 +7,5 @@ projectile.cache
 projectile-bookmarks.eld
 session.*
 .lsp-session-v1
+elpa/archives
+network-security.data
