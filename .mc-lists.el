@@ -51,6 +51,7 @@
         smex
         subword-left
         subword-right
+        transpose-words
         upcase-region
         yaml-electric-backspace
         yaml-electric-bar-and-angle

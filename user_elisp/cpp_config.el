@@ -24,7 +24,10 @@
 (require 'lsp)
 (require 'lsp-clients)
 (require 'projectile)
-(setq lsp-clients-clangd-args `("-compile-commands-dir=" ,@projectile-project-root))
+(setq lsp-clients-clangd-args `("-compile-commands-dir=" ,@projectile-project-root
+                                "-header-insertion-decorators=false"
+                                "-clang-format-style={DisableFormat: true, SortIncludes: false}"
+                                ))
 (add-hook 'c-mode-common-hook #'lsp)
 
 (provide 'cpp_config)
