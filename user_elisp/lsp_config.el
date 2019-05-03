@@ -6,6 +6,7 @@
 (setq lsp-auto-configure nil)
 (setq lsp-prefer-flymake nil)
 (setq lsp-eldoc-hook '())
+(setq lsp-enable-on-type-formatting nil)
 (add-hook 'lsp-mode-hook 'lsp-enable-imenu)
 
 (require 'lsp-ui-imenu)

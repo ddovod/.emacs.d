@@ -28,7 +28,7 @@
 (require 'projectile)
 (setq lsp-clients-clangd-args `("-compile-commands-dir=" ,@projectile-project-root
                                 "-header-insertion-decorators=false"
-                                "-clang-format-style={DisableFormat: true, SortIncludes: false}"
+                                "-include-ineligible-results"
                                 ))
 (add-hook 'c-mode-common-hook #'lsp)
 
