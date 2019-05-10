@@ -12,8 +12,6 @@
       c-basic-offset 4)
 (c-set-offset 'case-label '+)
 (c-set-offset 'inlambda 0)
-(c-set-offset 'arglist-close 0)
-(c-set-offset 'arglist-cont-nonempty 0)
 
 (setq c-basic-offset 4)
 (add-hook 'java-mode-hook
