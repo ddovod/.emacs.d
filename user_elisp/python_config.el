@@ -2,12 +2,13 @@
 ;;; Commentary:
 ;;; Code:
 
-;; (pyvenv-workon "emacs_python3")
-(pyvenv-workon "emacs_python2")
+(pyvenv-workon "emacs_python3")
+;; (pyvenv-workon "emacs_python2")
 
 (require 'elpy)
 (elpy-enable)
 (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+(setq elpy-rpc-python-command "python3")
 (setq elpy-rpc-backend "jedi")
 ;; (elpy-use-ipython)
 
