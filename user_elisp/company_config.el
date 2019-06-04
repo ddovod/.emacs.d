@@ -23,6 +23,8 @@
 (setq company-dabbrev-downcase nil)
 (setq company-dabbrev-ignore-case nil)
 (setq company-dabbrev-minimum-length 1)
+(eval-after-load 'company
+  '(push 'company-dabbrev company-backends))
 
 (eval-after-load 'company
   '(push 'company-pseudo-tooltip-frontend company-frontends))
