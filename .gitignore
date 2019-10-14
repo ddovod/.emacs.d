@@ -10,3 +10,4 @@ session.*
 elpa/archives
 network-security.data
 *.pyc
+url

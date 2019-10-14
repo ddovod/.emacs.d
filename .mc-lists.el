@@ -68,5 +68,6 @@
         imenu
         persp-switch
         projectile-run-project
+        reload-code-in-app
         save-some-buffers
         ))

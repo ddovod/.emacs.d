@@ -24,7 +24,7 @@
  '(anzu-search-threshold 1000)
  '(package-selected-packages
    (quote
-    (projectile dash yasnippet flycheck groovy-mode yascroll visual-regexp stickyfunc-enhance speed-type spaceline smart-mode-line ido-ubiquitous highlight-thing highlight-symbol flycheck-protobuf connection))))
+    (markdown-preview-mode markdown-mode projectile dash yasnippet flycheck groovy-mode yascroll visual-regexp stickyfunc-enhance speed-type spaceline smart-mode-line ido-ubiquitous highlight-thing highlight-symbol flycheck-protobuf connection))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
