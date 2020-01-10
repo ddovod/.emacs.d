@@ -27,6 +27,7 @@
 (setq lsp-clients-clangd-args `("-compile-commands-dir=" ,@projectile-project-root
                                 "-header-insertion-decorators=false"
                                 "-include-ineligible-results"
+                                "--completion-style=detailed"
                                 ))
 (add-hook 'c-mode-common-hook #'lsp)
 
