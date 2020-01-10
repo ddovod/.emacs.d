@@ -6,7 +6,9 @@
 (setq lsp-auto-configure nil)
 (setq lsp-prefer-flymake nil)
 (setq lsp-eldoc-hook '())
+(setq lsp-eldoc-enable-hover nil)
 (setq lsp-enable-on-type-formatting nil)
+(setq lsp-signature-auto-activate nil)
 (add-hook 'lsp-mode-hook 'lsp-enable-imenu)
 
 (require 'lsp-ui-imenu)
@@ -31,8 +33,10 @@
 (setq lsp-ui-peek-always-show t)
 
 (require 'lsp-ui-doc)
-(setq lsp-ui-doc-header t)
+(setq lsp-ui-doc-enable nil)
+(setq lsp-ui-doc-header nil)
 (setq lsp-ui-doc-use-childframe nil)
+(setq lsp-ui-doc-delay 2.0)
 
 (global-set-key (kbd "C-c l d") 'lsp-ui-peek-find-definitions)
 (global-set-key (kbd "C-c l r") 'lsp-ui-peek-find-references)
