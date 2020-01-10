@@ -22,8 +22,7 @@
  '(anzu-replace-to-string-separator " => ")
  '(anzu-search-threshold 1000)
  '(package-selected-packages
-   (quote
-    (skewer-mode color-theme-sanityinc-tomorrow company-web web-mode elixir-mode markdown-preview-mode markdown-mode projectile dash yasnippet flycheck groovy-mode yascroll visual-regexp stickyfunc-enhance speed-type spaceline smart-mode-line ido-ubiquitous highlight-thing highlight-symbol flycheck-protobuf connection))))
+   '(company lsp-ui lsp-mode skewer-mode color-theme-sanityinc-tomorrow company-web web-mode elixir-mode markdown-preview-mode markdown-mode projectile dash yasnippet flycheck groovy-mode yascroll visual-regexp stickyfunc-enhance speed-type spaceline smart-mode-line ido-ubiquitous highlight-thing highlight-symbol flycheck-protobuf connection)))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

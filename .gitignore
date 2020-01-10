@@ -11,3 +11,6 @@ elpa/archives
 network-security.data
 *.pyc
 url
+elpa/gnupg/tofu.db
+elpa/gnupg/pubring.gpg
+elpa/gnupg/trustdb.gpg
