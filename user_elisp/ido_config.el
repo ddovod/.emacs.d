@@ -48,7 +48,7 @@
                       ad-return-value))
 
         (delete-dups ad-return-value)
-        (reverse ad-return-value))))
+        (with-suppressed-warnings (reverse ad-return-value)))))
 
 ;; ido vertical mode
 (require 'ido-vertical-mode)
